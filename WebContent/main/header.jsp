@@ -32,17 +32,10 @@
             <div id="logo">
                 <h1>faith, hope and love</h1>
             </div>
-            <div id="lnb">
-            <ul>
-            <li><a href="#">전체목록</a></li>
-            <li><a href="#">지역별</a></li>
-            <li><a href="#">후기게시판</a></li>
-            <li><a href="#">문의사항</a></li>
-            </ul>
-            </div>
+           
         
 </c:if> 
-<c:if test="${not empty member and empty admin}"> <%--로그인 후 화면 --%>
+<c:if test="${not empty member and empty admin}"> <%--멤버 로그인 후 화면 --%>
             <div id="gnb">
                 <div id="left">
                 <a href="${conPath }/main.do">WEDDING_RIN</a>
@@ -58,14 +51,25 @@
             <div id="logo">
                 <h1>faith, hope and love</h1>
             </div>
-            <div id="lnb">
-            <ul>
-            <li><a href="#">전체목록</a></li>
-            <li><a href="#">지역별</a></li>
-            <li><a href="#">후기게시판</a></li>
-            <li><a href="#">문의사항</a></li>
-            </ul>
+          
+</c:if>
+<c:if test="${empty member and not empty admin}"> <%--관리자 로그인 후 화면 --%>
+            <div id="gnb">
+                <div id="left">
+                <a href="${conPath }/main.do">WEDDING_RIN</a>
+                </div>
+                <div id="right">
+                <ul>
+                <li><a href="#">INFO</a></li>
+                <li><a href="${conPath }/main.do">ADMINMODE</a></li>
+                <li><a href="${conPath }/memberLogout.do">LOGOUT</a></li>
+                </ul>
+                </div>
             </div>
+            <div id="logo">
+                <h1>faith, hope and love</h1>
+            </div>
+          
 </c:if> 
 </header>
 </body>

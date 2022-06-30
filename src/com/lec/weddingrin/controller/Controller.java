@@ -46,7 +46,8 @@ public class Controller extends HttpServlet {
 			//service = WeddingListService();
 			//service.......
 			viewPage = "main/main.jsp";
-		
+			
+			
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * member 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */
@@ -75,7 +76,6 @@ public class Controller extends HttpServlet {
 			service = new MLogoutService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
-			
 		}else if(com.equals("/MListView.do")) {
 			service= new MListService();
 			service.execute(request, response);
@@ -84,9 +84,11 @@ public class Controller extends HttpServlet {
 			service = new MListContentService(); //얘는 고객이 로그인 한게 아니기 때문에 session이 안넘어옴
 			service.execute(request, response);
 			viewPage = "member/membercontent.jsp";
+			
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * admin 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */
+			
 		}else if(com.equals("/adminLoginView.do")) {
 			viewPage = "admin/adminLogin.jsp";
 		}else if(com.equals("/adminLogin.do")) {
@@ -99,6 +101,14 @@ public class Controller extends HttpServlet {
 			service = new AJoinService();
 			service.execute(request, response);
 			viewPage = "adminLoginView.do";
+
+			/* * * * * * * * * * *  * * * * * * * * * * * *
+			 * * * * * * * * * Weddinghall 관련 요청  * * * * * * *
+			* * * * * * * * * * *  * * * * * * * * * * * * */
+		
+		
+		}else if(com.equals("/WListView.do")) {
+			
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
