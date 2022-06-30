@@ -1,0 +1,73 @@
+@charset "UTF-8";
+body {
+        background: url('../image/intro5.jpg') no-repeat;
+        }
+        section {
+            border: 5px solid red;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+            section #main {
+                
+            }
+        #border { 
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 150px;
+           
+           max-width: 500px;
+            margin-top: 80px;
+            padding: 32px;
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }
+            caption{
+            font-family: 'Domine', serif;
+            padding-right:350px;
+            color:#757169;
+            font-size:1.5em;
+            font-weight:bold;
+              padding-left:150px;
+            }
+			.join{
+			 font-family: 'Domine', serif;
+			font-size:1.2em;
+			color:#757169;
+			font-weight:bold;
+			padding-left:190px;
+			}
+        table td {
+            font-size: 1.0em;
+            padding: 5px;
+            padding-left: 30px;
+        }
+        input {
+            border: 1px solid lightgray;
+            width: 400px;
+            height: 28px;
+            border-radius: 5px;
+        }
+            input[type='submit'] {
+                width: 330px;
+                height: 35px;
+                margin: 20px 45px;
+                background-color: #7ca4c7;
+                 background-color: #757169;
+                color:white;
+            }
+
+            #idConfirmResult{
+            font-size:10px;
+            }
+            #pwChkResult{
+            font-size:10px;
+            }
+            #emailConfirmResult{
+            font-size:10px;
+            }
