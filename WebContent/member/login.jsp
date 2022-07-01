@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/login.css" rel="stylesheet">
+<link href="${conPath }/css/member/login.css" rel="stylesheet">
 	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -41,7 +41,7 @@
                         <tr>
                             <td>비밀번호</td>
                             <td>
-                                <input type="text" name="mpw" required="required" />
+                                <input type="password" name="mpw" required="required" />
                             </td>
                         </tr>
                         <td colspan="2"></td>

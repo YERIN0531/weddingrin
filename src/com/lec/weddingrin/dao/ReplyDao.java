@@ -79,8 +79,8 @@ public class ReplyDao {
 			conn  = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, wno);
-			pstmt.setInt(3, startRow);
-			pstmt.setInt(4, endRow);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
 			rs    = pstmt.executeQuery();
 			while(rs.next()) {
 				 int wreno = rs.getInt("wreno");

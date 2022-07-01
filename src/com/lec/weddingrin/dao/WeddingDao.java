@@ -62,6 +62,7 @@ public class WeddingDao {
 				 String wloc = rs.getString("wloc");
 				weddinghall.add(new WeddingDto(wno, wname, waddress, wcontent, wprice, wimage, wloc));
 			}
+			System.out.println(weddinghall.size());
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally {

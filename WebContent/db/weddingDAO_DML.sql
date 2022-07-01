@@ -134,17 +134,13 @@ SELECT wno, wname||'('||(select count(*) from WEDDINGREPLY where wno=w.wno group
 SELECT * FROM 
     (SELECT ROWNUM RN, A.* FROM 
     (SELECT WNO, WNAME ||'('||(SELECT COUNT(*) FROM WEDDINGREPLY WHERE WNO=W.WNO GROUP BY WNO)||')' WNAME, WADDRESS, WCONTENT, WPRICE, WIMAGE, WLOC FROM WEDDINGHALL w ORDER BY WNO) A)
-    WHERE RN BETWEEN 1 AND 11;
+    WHERE RN BETWEEN 1 AND 20;
 
 SELECT * FROM 
     (SELECT ROWNUM RN, A.* FROM 
     (SELECT *  FROM WEDDINGHALL ORDER BY WNO) A)
     WHERE RN BETWEEN 1 AND 11;
 
-SELECT * FROM 
-    (SELECT ROWNUM RN, A.* FROM 
-    (SELECT *  FROM WEDDINGHALL WHERE WLOC='소형견' ORDER BY WNO ) A)
-    WHERE RN BETWEEN 1 AND 11;
 
 -- 2. 등록된 웨딩홀 목록 (WLOC ) 별로 선택 
 SELECT wno, wname||'('||(select count(*) from WEDDINGREPLY where wno=w.wno group by wno)||')' wname, waddress, wcontent, wprice, wimage, wloc  FROM WEDDINGHALL W WHERE WLOC='영등포' ORDER BY WNO;
@@ -159,7 +155,7 @@ SELECT * FROM
 SELECT COUNT(*) WCNT FROM WEDDINGHALL;
 
 -- 4. 웨딩홀 상세보기 
-SELECT * FROM WEDDINGHALL WHERE WNO='1';
+SELECT * FROM WEDDINGHALL WHERE WNO='1';w
 
 SELECT wno, wname||'('||(select count(*) from WEDDINGREPLY where wno=w.wno group by wno)||')' wname, waddress, wcontent, wprice, wimage, wloc FROM WEDDINGHALL w WHERE WNO='1';
 select wno, count(*) from WEDDINGREPLY where wno=1 group by wno;
@@ -186,7 +182,7 @@ VALUES (REPLY_SEQ.NEXTVAL, '상담사가 별로에요','bbb',2);
 -- 2. 댓글 목록 출력하기 -- 페이징 처리(STARTROW, ENDROW)   // rownum 해주기
 
 SELECT * FROM WEDDINGREPLY WHERE WNO='1' ORDER BY WRENO;
-
+SELECT * FROM (SELECT ROWNUM RN, A.* FROM(SELECT * FROM WEDDINGREPLY WHERE WNO='1' ORDER BY WRENO DESC) A) WHERE RN BETWEEN 1 AND 10;
 -- 영등포 웨딩홀이 인기가 많음. 댓글이 많이 달림 .. 영등ㅇ포 웨딩홀 댓글은 100개고 10개 
 -- 댓글 갯수 
 
@@ -194,13 +190,15 @@ SELECT * FROM WEDDINGREPLY WHERE WNO='1' ORDER BY WRENO;
 -- 1. 예약하기 INSERT 해서 RESERVATEION TABLE에 넣기yerinye 
 INSERT INTO WEDDING_RS(RSNO, MID, WNO, WDATE)
 VALUES(RS_SEQ.NEXTVAL, 'aaa', 1, TO_DATE('2022-05-31 15:00','YYYY-MM-DD HH24:MI')); 
-
-SELECT * FROM WEDDING_RS;
+INSERT INTO WEDDING_RS(RSNO, MID, WNO, WDATE)
+VALUES(RS_SEQ.NEXTVAL, 'bbb', 3, TO_DATE('2022-07-01 15:00','YYYY-MM-DD HH24:MI')); 
+SELECT RSNO, MID, WNO, TO_CHAR(WDATE,'YYYY-MM-DD HH24:MI') FROM WEDDING_RS;
 -- 2. 예약한 LIST 뽑기 (사람 이름, 예약 날짜, 예약 시간 ) 
 SELECT * FROM WEDDING_RS WHERE MID='aaa';
 -- 3. 예약 취소하기 
 DELETE FROM WEDDING_RS WHERE RSNO=1;
 
+SELECT * FROM WEDDING_RS;
 
 -- ★ ★ 5.찜하기  테이블 DAO ★ ★ --
 
@@ -219,6 +217,10 @@ ROLLBACK;
 -- 내가 찜한 리스트 
 SELECT * FROM ZIM WHERE MID='aaa' ORDER BY ZDATE DESC;
 
+SELECT * FROM WEDDINGHALL WHERE WNO IN(SELECT WNO FROM ZIM WHERE MID='aaa') ORDER BY WNO DESC;
+
+
+SELECT WNO FROM ZIM WHERE MID='aaa';
 -- //찜 테이블 클릭했을때 .do로 가라 , request.setAttribute 에다가 count 를입력 , 상세보기 페이지에 0이면 찜 취소 .do , 그 아이가 1이면 insert.do로 가라   scott ACCOUNT UNLOCK;
 COMMIT;
 SELECT * FROM MEMBER;

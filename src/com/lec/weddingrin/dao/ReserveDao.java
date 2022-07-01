@@ -45,7 +45,7 @@ public class ReserveDao {
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO WEDDING_RS(RSNO, MID, WNO, WDATE)" + 
-				"VALUES(RS_SEQ.NEXTVAL, ?, ?, TO_DATE(?,'YYYY-MM-DD HH24:MI')";
+				"VALUES(RS_SEQ.NEXTVAL, ?, ?, ?)";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);

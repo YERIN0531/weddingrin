@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/alogin.css" rel="stylesheet">
+<link href="${conPath }/css/admin/alogin.css" rel="stylesheet">
 	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>

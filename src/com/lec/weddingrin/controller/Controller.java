@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lec.weddingrin.service.AJoinService;
 import com.lec.weddingrin.service.ALoginService;
+import com.lec.weddingrin.service.CountZimService;
 import com.lec.weddingrin.service.EmailConfirmService;
 import com.lec.weddingrin.service.MJoinService;
 import com.lec.weddingrin.service.MListContentService;
@@ -18,7 +19,14 @@ import com.lec.weddingrin.service.MListService;
 import com.lec.weddingrin.service.MLoginService;
 import com.lec.weddingrin.service.MLogoutService;
 import com.lec.weddingrin.service.MidConfirmService;
+import com.lec.weddingrin.service.RboardListService;
+import com.lec.weddingrin.service.ReplyListService;
 import com.lec.weddingrin.service.Service;
+import com.lec.weddingrin.service.WContentService;
+import com.lec.weddingrin.service.WListService;
+import com.lec.weddingrin.service.WeddingReplyService;
+import com.lec.weddingrin.service.WeddingRsService;
+import com.lec.weddingrin.service.insertZimservice;
 
 @WebServlet("*.do")
 public class Controller extends HttpServlet {
@@ -105,10 +113,44 @@ public class Controller extends HttpServlet {
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * Weddinghall 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */
-		
+		//웨딩홀 상세보기, 상세보기 내에 댓글달기, 예약하기, 찜하기 안만들어놨음  
 		
 		}else if(com.equals("/WListView.do")) {
+			service = new WListService();
+			service.execute(request, response);
+			viewPage = "wedding/wList.jsp";
+		}else if(com.equals("/Wcontent.do")) {	
+			service = new WContentService();
+			service.execute(request, response);
+			service = new ReplyListService();
+			service.execute(request, response);
+			///////////////////////////////////////////////
+			service = new CountZimService();
+			service.execute(request, response);
+			//////////////////////////////////////////////
+			viewPage = "wedding/wContent.jsp";
+		}else if(com.equals("/WeddingRs.do")) {
+			service = new WeddingRsService();
+			service.execute(request, response);
+			viewPage = "Wcontent.do";
+		
+			//댓글쓰기(weddingReply.do) 댓글 뿌리기(weddingReplyView.do) 댓글 삭제 
+		}else if(com.equals("/weddingReply.do")) {
+			service = new WeddingReplyService();
+			service.execute(request, response);
+			viewPage = "Wcontent.do";
+		}else if(com.equals("/insertZim.do")) {
+			service = new insertZimservice(); //찜 누눌렀을때 여기로 오고, request.setAttribute에 count 넣어주기  
+			service.execute(request, response);
+			viewPage = "Wcontent.do";
 			
+			/* * * * * * * * * * *  * * * * * * * * * * * *
+			 * * * * * * * * * 후기게시판 관련 요청  * * * * * * *
+			* * * * * * * * * * *  * * * * * * * * * * * * */
+		}else if(com.equals("/ReviewList.do")) {
+			service = new RboardListService();
+			service.execute(request, response);
+			viewPage = "rboard/reviewList.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
