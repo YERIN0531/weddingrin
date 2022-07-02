@@ -19,7 +19,7 @@
 <c:if test="${empty member and empty admin}">
             <div id="gnb">
                 <div id="left">
-                <a href="${conPath }/main.do">WEDDING_RIN</a>
+                <a href="${conPath }/main.do?mid=${member.mid}">WEDDING_RIN</a>
                 </div>
                 <div id="right">
                 <ul>

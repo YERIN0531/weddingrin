@@ -21,7 +21,7 @@ public class ReplyListService implements Service {
 			}
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		final int PAGESIZE=10, BLOCKSIZE=5;
+		final int PAGESIZE=3, BLOCKSIZE=2;
 		int startRow = (currentPage-1) * PAGESIZE +1;
 		int endRow   = startRow + PAGESIZE -1;
 		

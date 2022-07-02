@@ -20,13 +20,12 @@
 				if(zimno==0){
 				$(this).attr('src','icon/heart.png');
 				location.href='${conPath}/insertZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
+				}else if(zimno==1){
+					zimno=0;
+					$(this).attr('src','icon/love.png');
+					location.href='${conPath}/deleteZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
 				}
-				// 한번 더 눌렀을땐 찜 취소 delete.do로 가라  가서 찜 취소 해주기
 			});
-
-// 			$('heart').click(function(){
-// 				$(this).toggle;
-// 			});
 		});
 	</script>
 </head>
@@ -38,25 +37,32 @@
 	</c:if>
 	
 	<jsp:include page="../main/header.jsp"/>
+	
 	<div id="tableview">
+	<div id="weddingrin"><p>WEDDING_RIN</p></div>
 	<table id="tacontent">
-	<caption>WEDDING_RIN</caption>
-	<tr><td>${weddinghall.wname }</td></tr>
-	<tr><td>${weddinghall.wloc }</td></tr>
-	<tr><td><img src="${conPath }/wimg/${weddinghall.wimage}" class="hall"></td></tr>
+	<tr><td class="hallname">${weddinghall.wname }</td></tr>
 	<tr>
-		<td>
-			${weddinghall.wname }
+	<td class="placename"><img src="${conPath }/icon/placeholder.png" class="place">  ${weddinghall.wloc }</td>
+	</tr>
+	<tr><td colspan="2"></td></tr>
+	<tr><td><img src="${conPath }/wimg/${weddinghall.wimage}" class="hall"></td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td class="hallinfo">업체정보</td></tr>
+	<tr><td></td></tr>
+	<tr>
+		<td class="detail">
+		<b>홀이름 </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${weddinghall.wname }
 			<c:if test="${ZimCount eq 0}">
-	<img src="${conPath }/icon/love.png" class="heart">찜하기
+	<img src="${conPath }/icon/love.png" class="heart">찜하기  <!-- 안눌러진상태 -->
 			</c:if>
 	<c:if test="${ZimCount eq 1}">
-	<img src="${conPath }/icon/heart.png" class="heart">찜하기
+	<img src="${conPath }/icon/heart.png" class="heart">찜하기 <!-- 눌러진상태 -->
 			</c:if>
 		</td>
 	</tr>
-	<tr><td>${weddinghall.waddress }</td></tr>
-	<tr><td>${weddinghall.wcontent }</td></tr>
+	<tr><td class="detail"><b>상세주소 </b>&nbsp;&nbsp;${weddinghall.waddress }</td></tr>
+	<tr><td class="detail"><b>홀소개  </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${weddinghall.wcontent }</td></tr>
 	
 	
 	</table>
@@ -65,12 +71,11 @@
 	<input type="hidden" name="wno" value="${param.wno }">
 	
 	<table id="tareserve">
-		<caption>예약하기</caption>
-		<tr><td>방문날짜</td></tr>
-		<tr><td><input type="date" name="wrate"></td></tr>
-		<tr><td>방문시간</td></tr>
+		<tr><td class="reserve">방문날짜</td></tr>
+		<tr><td><input type="date" name="wrate" class="datereserve"></td></tr>
+		<tr><td class="reserve">방문시간</td></tr>
 		<tr><td>
-		<select name="wtime">
+		<select name="wtime" class="timereserve">
 			<option value="none">선택</option>
 			<option>11:00</option>
 			<option>12:00</option>
@@ -92,7 +97,7 @@
 		</td></tr>
 	</table>
 	</form>
-	</div>
+	</div> <!-- #tableView -->
 	
 	<form action="${conPath }/weddingReply.do">
 	<input type="hidden" name="wno" value="${param.wno }">
@@ -107,8 +112,6 @@
 	<c:if test="${empty member }"><tr><td><a href="${conPath }/memberLoginView.do">글쓰기는 사용자 로그인 이후에만 가능합니다</a></td></tr></c:if>
 	</table>
 	</form>
-	
-	
 	
 	<!-- 얘는 Wcontent.do 의 wContent.jsp -->
 	<!-- 댓글 list 뿌릴 공간  -->	
@@ -131,18 +134,18 @@
 	
 	<div class="paging">
 		<c:if test="${startPage > BLOCKSIZE }">
-			[ <a href="${conPath }/Wcontent.do?pageNum=${startPage-1}"> 이전 </a> ]
+			[ <a href="${conPath }/Wcontent.do?pageNum=${startPage-1}&wno=${weddinghall.wno}"> 이전 </a> ]
 		</c:if>
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i == pageNum }">
 				<b> [ ${i } ] </b>
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/Wcontent.do?pageNum=${i}"> ${i } </a> ]
+				[ <a href="${conPath }/Wcontent.do?pageNum=${i}&wno=${weddinghall.wno}"> ${i } </a> ]
 			</c:if>
 		</c:forEach>
 		<c:if test="${endPage<pageCnt }">
-		  [ <a href="${conPath }/Wcontent.do?pageNum=${endPage+1}"> 다음 </a> ]
+		  [ <a href="${conPath }/Wcontent.do?pageNum=${endPage+1}&wno=${weddinghall.wno}"> 다음 </a> ]
 		</c:if>
 	</div>
 	

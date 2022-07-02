@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lec.weddingrin.dao.MemberDao;
 import com.lec.weddingrin.dao.WeddingDao;
+import com.lec.weddingrin.dto.MemberDto;
 import com.lec.weddingrin.dto.WeddingDto;
 
 public class WListService implements Service {
@@ -28,13 +30,8 @@ public class WListService implements Service {
 		for(int i=0; i<halls.size(); i++) {
 			System.out.println(i);
 		}
-		request.setAttribute("wListView", halls); 
-		
-		
-		
-		
-		
-		
+		request.setAttribute("wListView", halls);
+	
 		int totCnt = wDao.weddingTotCnt();
 		int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);
 		int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE +1;

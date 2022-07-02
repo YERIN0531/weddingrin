@@ -28,7 +28,7 @@
             <tr>
             <td id="one"></td>
             <td id="two">
-                <a href="${conPath }/WListView.do">WEDDINGHALL<br>LIST</a>
+                <a href="${conPath }/WListView.do?mid=${member.mid}">WEDDINGHALL<br>LIST</a>
                 <div>&nbsp;</div>
                 <p>
                     This is a page where you can see the wedding hall.<br />

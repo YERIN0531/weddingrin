@@ -3,6 +3,7 @@ package com.lec.weddingrin.service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.lec.weddingrin.dao.WeddingDao;
 import com.lec.weddingrin.dto.WeddingDto;
@@ -16,6 +17,8 @@ public class WContentService implements Service {
 		WeddingDao wDao = WeddingDao.getInstance();
 		WeddingDto weddinghall = wDao.getWeddinghall(wno);
 		request.setAttribute("weddinghall", weddinghall);
+//		HttpSession session = request.getSession();
+//		session.setAttribute("weddinghall", weddinghall);
 	}
 
 }

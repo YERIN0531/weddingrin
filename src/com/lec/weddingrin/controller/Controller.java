@@ -26,6 +26,7 @@ import com.lec.weddingrin.service.WContentService;
 import com.lec.weddingrin.service.WListService;
 import com.lec.weddingrin.service.WeddingReplyService;
 import com.lec.weddingrin.service.WeddingRsService;
+import com.lec.weddingrin.service.deleteZimservice;
 import com.lec.weddingrin.service.insertZimservice;
 
 @WebServlet("*.do")
@@ -141,6 +142,10 @@ public class Controller extends HttpServlet {
 			viewPage = "Wcontent.do";
 		}else if(com.equals("/insertZim.do")) {
 			service = new insertZimservice(); //찜 누눌렀을때 여기로 오고, request.setAttribute에 count 넣어주기  
+			service.execute(request, response);
+			viewPage = "Wcontent.do";
+		}else if(com.equals("/deleteZim.do")) {
+			service = new deleteZimservice();
 			service.execute(request, response);
 			viewPage = "Wcontent.do";
 			

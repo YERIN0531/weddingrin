@@ -1,13 +1,56 @@
 @charset "UTF-8";
+	
+	*{
+	margin:0px;
+	padding:0px;
+	}
+	
 	#tableview{
 	overflow:hidden;
+	border:1px solid red;
+	width:1200px;
+	margin:50px auto;
+	}
+	#tableview table td{
+	  font-family: 'IBM Plex Sans KR', sans-serif;
+	}
+	.hallname{
+	font-size:1.7em;
+	font-weight:bold;
+	color: #757169;
+	}
+	#tacontent .placename{
+	padding-left:5px;
+	font-size:0.8em;
+	}
+	#tacontent .hallinfo{
+	color: #757169;
+	font-size:1.2em;
+	font-weight: bold;
+	}
+	#tacontent b{
+	color : gray;
+	font-size : 0.9em;
+	}
+	#tacontent .detail{
+	font-size : 0.8em; 
+	}
+	#weddingrin{
+	font-family: 'Domine', serif;
+    color: black;
+    font-size: 1.7em;
+    font-weight:bold;
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+	font-size:
 	}
 	#tacontent{
-	border :1px solid black;
 	float:left;
-	margin:50px auto;
+	margin:20px auto;
 	margin-left:50px;
 	}
+	
 	#tacontent .hall{
 	width:700px;
 	}
@@ -15,10 +58,30 @@
 	width:10px;
 	padding-left:10px;
 	}
+	#tacontent .love{
+	width:10px;
+	padding-left:10px;
+	}
+	#tacontent .place{
+	width:10px;
+	}
+	
 	#tareserve{
+	width:300px;
 	border:1px solid black;
 	float:left;
-	margin-top:50px;
-	padding:0;
-	
+	margin-top:90px;
+	margin-left:50px;
 	}
+	#tareserve .reserve{
+	font-size:0.8em;
+	}
+	#tareserve .datereserve{
+	border: 1px solid lightgray;
+	height:50px;
+	width:100px;
+	}
+
+	
+	
+	

@@ -44,7 +44,7 @@
 	   		<c:forEach var="dto" items="${wListView }">
 		
 			<td>
-			<a href="${conPath }/Wcontent.do?wno=${dto.wno}"><img src="${conPath }/wimg/${dto.wimage}"></a>
+			<a href="${conPath }/Wcontent.do?wno=${dto.wno}&mid=${member.mid}"><img src="${conPath }/wimg/${dto.wimage}"></a>
 			<p class="hallname">${dto.wname}</p>
 			<p class="halladdress">${dto.wloc }</p>
 			</td>
@@ -64,7 +64,7 @@
 		<a href="${conPath }/WListView.do?pageNum=1">&lt;&lt;</a>
 		&nbsp; &nbsp; &nbsp;
 		<c:if test="${startPage>BLOCKSIZE }">
-			<a href="${conPath }/WListView.do?pageNum=${startPage-1}">&lt;</a>
+			<a href="${conPath }/WListView.do?pageNum=${startPage-1}&wno=${weddinghall.wno}">&lt;</a>
 		</c:if>
 		<c:if test="${startPage<=BLOCKSIZE }">
 			&lt;
@@ -75,18 +75,18 @@
 				[ <b>${i }</b> ]
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/WListView.do?pageNum=${i}">${i }</a> ]
+				[ <a href="${conPath }/WListView.do?pageNum=${i}&wno=${weddinghall.wno}">${i }</a> ]
 			</c:if>
 		</c:forEach>
 		&nbsp; &nbsp; &nbsp;
 		<c:if test="${endPage < pageCnt }">
-			<a href="${conPath }/WListView.do?pageNum=${endPage+1}">&gt;</a>
+			<a href="${conPath }/WListView.do?pageNum=${endPage+1}&wno=${weddinghall.wno}">&gt;</a>
 		</c:if>
 		<c:if test="${endPage == pageCnt }">
 			&gt;
 		</c:if>
 		&nbsp; &nbsp; &nbsp;
-		<a href="${conPath }/WListView.do?pageNum=${pageCnt}">&gt;&gt;</a>
+		<a href="${conPath }/WListView.do?pageNum=${pageCnt}&wno=${weddinghall.wno}">&gt;&gt;</a>
 	</div>
    	</div>
    </div>
