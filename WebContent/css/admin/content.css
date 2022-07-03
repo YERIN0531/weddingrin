@@ -57,4 +57,11 @@
             	background-color: #757169;
             	color:white;
             }
+            
+            #replyview #tareply{
+            width:1000px;
+            height:400px;
+            margin: 0 auto;
+            border : 1px solid red;
+            }
            

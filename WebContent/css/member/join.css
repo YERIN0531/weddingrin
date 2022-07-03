@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-        background: url('../image/intro5.jpg') no-repeat;
+        background: url('/project/image/intro5.jpg') no-repeat;
         }
         section {
             border: 5px solid red;

@@ -7,9 +7,9 @@
 	
 	#tableview{
 	overflow:hidden;
-	border:1px solid red;
 	width:1200px;
 	margin:50px auto;
+	margin-bottom: 10px;
 	}
 	#tableview table td{
 	  font-family: 'IBM Plex Sans KR', sans-serif;
@@ -55,8 +55,8 @@
 	width:700px;
 	}
 	#tacontent .heart{
-	width:10px;
-	padding-left:10px;
+	width:30px;
+	padding-left:670px;
 	}
 	#tacontent .love{
 	width:10px;
@@ -68,19 +68,125 @@
 	
 	#tareserve{
 	width:300px;
-	border:1px solid black;
 	float:left;
-	margin-top:90px;
+	margin-top:160px;
 	margin-left:50px;
+	padding:20px;
+	border : 1px solid lightgray;
+	}
+	#tareserve td{
+	padding:4px;
 	}
 	#tareserve .reserve{
 	font-size:0.8em;
 	}
 	#tareserve .datereserve{
-	border: 1px solid lightgray;
+	height:30px;
+	width:250px;
+	}
+	
+	#tareserve .timereserve{
+	height:30px;	
+	width:250px;
+	}
+	#tareserve input[type="submit"]{
 	height:50px;
+	margin-top:10px;
+	width:250px;
+	text-align: center;
+	border-radius: 4px;
+	color:white;
+    background-color:#757169;
+    border : 1px solid white;
+	}
+	
+	#tareserve .noreserve{
+	padding-left:13px;
+	color: #757169;
+	}
+	
+	#replyview{
+	margin: 0 auto;
+	padding-left : 200px;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	}
+	#replyview #tareply{
+	width:1050px;
+	margin-left:10px;
+	}
+	#replyview .onereview{
+	color: #757169;
+	font-size:1.2em;
+	font-weight:bold;
+}
+	#replyview .noreview{
+	text-align: center;
+	color : black;
+	border : 1px dashed #757169;
+	height:50px;
+	}
+	#replyview .noreview a{
+	text-decoration: none;
+	color : #757169;
+	}
+	
+	#replyview #onelist{
+	text-align:center;
+	margin-top:10px;
+	margin-left:40px;
+	
+	}
+	#replyview .memo{
+	width:800px;
+	}
+	#replyview .id{
 	width:100px;
 	}
+	#replyview .date{
+	width:100px;
+	}
+	
+	#replyview #onelist th{
+	color:#757169;
+	text-align: left;
+	}
+	#replyview #onelist td{
+	color:#757169;
+	border-top : 1px solid lightgray;
+	border-bottom : 1px solid lightgray;
+	text-align: left;
+	height:30px;
+	
+	}
+	
+	#tareply .textreview{
+	margin-left:180px;
+	width:650px;
+	height:30px;
+	}
+	
+	#tareply input[type="submit"]{
+	background-color: #757169;
+	color:white;
+	width:70px;
+	padding-bottom:10px;
+	height:30px;
+	margin-left:10px;
+	
+}
+	
+	 .paging{
+	 margin-top:10px;
+	 margin-left : 700px;
+	 margin-bottom : 20px;
+	 }
+	 .paging a{
+	  text-decoration: none;
+	  color:#757169;
+	 }
+	
+	
+	
 
 	
 	

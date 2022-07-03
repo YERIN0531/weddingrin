@@ -21,17 +21,22 @@ public class RboardListService implements Service {
 		int startRow = (currentPage-1)*PAGESIZE +1;
 		int endRow   = startRow + PAGESIZE -1;
 		
+		
 		ReviewDao rDao = ReviewDao.getInstance();
 		ArrayList<ReviewDto> review = rDao.reviewList(startRow, endRow);
-		request.setAttribute("reviewList", review);
+		request.setAttribute("allreviewList", review);
+		
 		
 		int totCnt = rDao.reviewTotCnt();
+		
 		int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);
 		int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE +1;
 		int endPage   = startPage + BLOCKSIZE -1 ;
 		if(endPage > pageCnt) {
 			endPage = pageCnt;
 		}
+		
+		request.setAttribute("totCnt", totCnt);
 		request.setAttribute("pageCnt", pageCnt);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);

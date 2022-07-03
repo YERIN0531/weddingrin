@@ -26,7 +26,7 @@
             <ul>
             <li><a href="${conPath }/WListView.do">전체목록</a></li>
             <li><a href="#">지역별</a></li>
-            <li><a href="#">후기게시판</a></li>
+            <li><a href="${conPath }/ReviewList.do">후기게시판</a></li>
             <li><a href="#">문의사항</a></li>
             </ul>
             </div>

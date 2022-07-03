@@ -19,7 +19,13 @@ import com.lec.weddingrin.service.MListService;
 import com.lec.weddingrin.service.MLoginService;
 import com.lec.weddingrin.service.MLogoutService;
 import com.lec.weddingrin.service.MidConfirmService;
+import com.lec.weddingrin.service.QboardListService;
+import com.lec.weddingrin.service.RboardContentService;
+import com.lec.weddingrin.service.RboardDeleteService;
 import com.lec.weddingrin.service.RboardListService;
+import com.lec.weddingrin.service.RboardModifyService;
+import com.lec.weddingrin.service.RboardModifyViewService;
+import com.lec.weddingrin.service.RboardWriteService;
 import com.lec.weddingrin.service.ReplyListService;
 import com.lec.weddingrin.service.Service;
 import com.lec.weddingrin.service.WContentService;
@@ -120,6 +126,7 @@ public class Controller extends HttpServlet {
 			service = new WListService();
 			service.execute(request, response);
 			viewPage = "wedding/wList.jsp";
+		
 		}else if(com.equals("/Wcontent.do")) {	
 			service = new WContentService();
 			service.execute(request, response);
@@ -130,6 +137,7 @@ public class Controller extends HttpServlet {
 			service.execute(request, response);
 			//////////////////////////////////////////////
 			viewPage = "wedding/wContent.jsp";
+		
 		}else if(com.equals("/WeddingRs.do")) {
 			service = new WeddingRsService();
 			service.execute(request, response);
@@ -156,6 +164,37 @@ public class Controller extends HttpServlet {
 			service = new RboardListService();
 			service.execute(request, response);
 			viewPage = "rboard/reviewList.jsp";
+		}else if(com.equals("/ReviewWriteView.do")) {
+			viewPage = "rboard/reviewWrite.jsp";
+		}else if(com.equals("/ReviewWrite.do")) {
+			service = new RboardWriteService();
+			service.execute(request, response);
+			viewPage = "ReviewList.do";
+		}else if(com.equals("/ReviewContent.do")) {
+			service = new RboardContentService();
+			service.execute(request, response);
+			viewPage ="rboard/reviewcontent.jsp";
+		}else if(com.equals("/ReviewModifyView.do")) {
+			service = new RboardModifyViewService();
+			service.execute(request, response);
+			viewPage = "rboard/reviewmodify.jsp";
+		}else if(com.equals("/ReviewModify.do")) {
+			service= new RboardModifyService();
+			service.execute(request, response);
+			viewPage="ReviewList.do";
+		}else if(com.equals("/ReviewDelete.do")) {
+			service = new RboardDeleteService();
+			service.execute(request, response);
+			viewPage="ReviewList.do";
+			
+			/* * * * * * * * * * *  * * * * * * * * * * * *
+			 * * * * * * * * * 문의게시판 관련 요청  * * * * * * *
+			* * * * * * * * * * *  * * * * * * * * * * * * */
+			
+		}else if(com.equals("/QnaList.do")) {
+			service = new QboardListService();
+			service.execute(request, response);
+			viewPage = "qboard/qnaList.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

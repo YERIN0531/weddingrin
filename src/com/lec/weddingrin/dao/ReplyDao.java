@@ -105,15 +105,16 @@ public class ReplyDao {
 	
 	
 //	 3. 댓글 갯수 
-	public int replyTotCnt() {
+	public int replyTotCnt(int wno) {
 		int cnt = 0;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
 		ResultSet         rs    = null;
-		String sql = "SELECT COUNT(*) REPLYCNT FROM WEDDINGREPLY";
+		String sql = "SELECT COUNT(*) REPLYCNT FROM WEDDINGREPLY WHERE WNO=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wno);
 			rs = pstmt.executeQuery();
 			rs.next();
 			cnt = rs.getInt("replycnt");
