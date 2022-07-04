@@ -23,7 +23,7 @@
                 </div>
                 <div id="right">
                 <ul>
-                <li><a href="#">INFO</a></li>
+                <li><a href="${conPath }/Info.do">INFO</a></li>
                 <li><a href="${conPath }/memberJoinView.do">JOIN</a></li>
                 <li><a href="${conPath }/memberLoginView.do">LOGIN</a></li>
                 </ul>
@@ -42,7 +42,7 @@
                 </div>
                 <div id="right">
                 <ul>
-                <li><a href="#">INFO</a></li>
+                <li><a href="${conPath }/Info.do">INFO</a></li>
                 <li><a href="${conPath }/Myboard.do?mid=${member.mid}">MY</a></li>
                 <li><a href="${conPath }/memberLogout.do">LOGOUT</a></li>
                 </ul>
@@ -60,7 +60,7 @@
                 </div>
                 <div id="right">
                 <ul>
-                <li><a href="#">INFO</a></li>
+                <li><a href="${conPath }/Info.do">INFO</a></li>
                 <li><a href="${conPath }/main.do">ADMINMODE</a></li>
                 <li><a href="${conPath }/memberLogout.do">LOGOUT</a></li>
                 </ul>

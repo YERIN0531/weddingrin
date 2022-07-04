@@ -8,7 +8,7 @@
 	#tableview{
 	overflow:hidden;
 	width:1200px;
-	margin:50px auto;
+	margin:30px auto;
 	margin-bottom: 10px;
 	}
 	#tableview table td{
@@ -37,7 +37,7 @@
 	}
 	#weddingrin{
 	font-family: 'Domine', serif;
-    color: black;
+    color: #757169;
     font-size: 1.7em;
     font-weight:bold;
 	width:300px;
@@ -133,17 +133,23 @@
 	#replyview #onelist{
 	text-align:center;
 	margin-top:10px;
-	margin-left:40px;
+	margin-left:100px;
 	
 	}
 	#replyview .memo{
-	width:800px;
+	width:550px;
 	}
 	#replyview .id{
 	width:100px;
 	}
 	#replyview .date{
 	width:100px;
+	}
+	#replyview .delete{
+	width:80px;
+	}
+	#replyview .modify{
+	width:80px;
 	}
 	
 	#replyview #onelist th{
@@ -155,12 +161,13 @@
 	border-top : 1px solid lightgray;
 	border-bottom : 1px solid lightgray;
 	text-align: left;
-	height:30px;
+	height:40px;
 	
 	}
 	
 	#tareply .textreview{
 	margin-left:180px;
+	margin-top:10px;
 	width:650px;
 	height:30px;
 	}
@@ -174,6 +181,11 @@
 	margin-left:10px;
 	
 }
+	.trash{
+	width:13px;
+	text-align: center;
+	padding-left:20px;
+	}
 	
 	 .paging{
 	 margin-top:10px;
@@ -185,6 +197,37 @@
 	  color:#757169;
 	 }
 	
+	
+	
+	
+	#lnb {
+                margin: 5px auto;
+                width: 80%;
+                border-top:1px dashed gray;
+                border-bottom: 1px dashed gray;
+                height: 50px;
+            }
+
+                 #lnb ul {
+                    overflow: hidden;
+                    height: 50px;
+                }
+
+                     #lnb ul li {
+                        list-style: none;
+                        float: left;
+                        line-height: 50px;
+                        width: 25%;
+                        text-align: center;
+                    }
+
+                         #lnb ul li a {
+                            font-family: 'IBM Plex Sans KR', sans-serif;
+                            text-decoration: none;
+                            color: black;
+                            font-size:1.0em;
+                            
+                        }
 	
 	
 

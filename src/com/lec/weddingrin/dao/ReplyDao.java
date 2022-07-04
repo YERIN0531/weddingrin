@@ -153,4 +153,63 @@ public class ReplyDao {
 		return result;
 	}
 	
+	// WRENO로 DTO 가져오기 
+	public ReplyDto getDto(int wreno) {
+		ReplyDto dto = null;
+		Connection      conn  = null;
+		PreparedStatement pstmt = null;
+		ResultSet         rs    = null;
+		String sql = "SELECT * FROM WEDDINGREPLY WHERE WRENO=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wreno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				String wmemo = rs.getString("wmemo");
+				String mid = rs.getString("mid");
+				int wno = rs.getInt("wno");
+				Date wredate = rs.getDate("wredate");
+				dto = new ReplyDto(wreno, wmemo, mid, wno, wredate);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs   !=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn !=null) conn.close();
+			} catch (SQLException e) {System.out.println(e.getMessage());}
+		}
+		return dto;
+		
+	}
+	// 댓글 수정하기 
+	
+	public int replyModify(ReplyDto dto) {
+		int result = 0;
+		Connection        conn  = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE WEDDINGREPLY SET WMEMO = ? WHERE WRENO=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getWmemo());
+			pstmt.setInt(2, dto.getWreno());
+			result = pstmt.executeUpdate();
+			System.out.println(result==1? "댓글수정성공":dto+"댓글 수정 실패");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage()+"댓글 수정 실패 : " +dto);
+		}finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn !=null) conn.close();
+			} catch (SQLException e) {System.out.println(e.getMessage());}
+		}
+		return result;
+	}
+	
+	
+	
 }

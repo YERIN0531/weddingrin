@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td id="three">
-                    <a href="#">HOMEPAGE<br>INTRODUCE</a>
+                    <a href="${conPath }/Info.do">HOMEPAGE<br>INTRODUCE</a>
                     <div>&nbsp;</div>
                     <p>
                         This is an introduction related to Weddingrin.<br />

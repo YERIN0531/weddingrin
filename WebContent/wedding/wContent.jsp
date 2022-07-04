@@ -28,7 +28,7 @@
 					location.href='${conPath}/deleteZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
 				}
 			});
-		});
+			});
 	</script>
 </head>
 <body>
@@ -39,9 +39,18 @@
 	</c:if>
 	
 	<jsp:include page="../main/header.jsp"/>
+	<div>&nbsp;</div>
+    <div id="lnb">
+            <ul>
+            <li><a href="${conPath }/WListView.do">전체목록</a></li>
+            <li><a href="${conPath }/WLocalListView.do">지역별</a></li>
+            <li><a href="${conPath }/ReviewList.do">후기게시판</a></li>
+            <li><a href="${conPath }/QnaList.do">문의사항</a></li>
+            </ul>
+            </div>
 	
 	<div id="tableview">
-	<div id="weddingrin"><p>WEDDING_RIN</p></div>
+<!-- 	<div id="weddingrin"><p>WEDDING_RIN</p></div> -->
 	<table id="tacontent">
 	<tr><td class="hallname">${weddinghall.wname }
 	
@@ -60,7 +69,6 @@
 	<img src="${conPath }/icon/heart.png" class="heart"> <!-- 눌러진상태 -->
 			</c:if>
 	</td></tr>
-	<tr><td></td></tr>
 	<tr><td class="hallinfo">업체정보</td></tr>
 	<tr><td></td></tr>
 	<tr>
@@ -131,16 +139,22 @@
 	<!-- 댓글 list 뿌릴 공간  -->	
 	
 		<table id="onelist">
-		<tr><th>한줄평</th><th>작성자</th><th>글쓴날짜</th></tr>
+		<tr><th>한줄평</th><th>작성자</th><th>글쓴날짜</th><th>삭제</th></tr>
 		<c:if test="${totCnt==0 }">
 		<tr><td colspan="4">등록된 후기가 없습니다 첫 후기를 남겨주세요!</td></tr>
 		</c:if>
 		<c:if test="${totCnt!=0 }">
 		<c:forEach items="${replylist }" var="reply">
 		<tr>
-		<td class="memo">${reply.wmemo }</td>
+		<td class="memo">${reply.wmemo }<p></td>
 		<td class="id">${reply.mid }</td>
 		<td class="date"><fmt:formatDate value="${reply.wredate }" type="date" dateStyle="short"/></td>
+		<c:if test="${reply.mid eq member.mid }">
+		<td class="delete"><img src="${conPath }/icon/trash.png" class="trash"></td>
+		</c:if>
+		<c:if test="${reply.mid != member.mid }">
+		<td class="delete"></td>
+		</c:if>
 		</tr>
 		</c:forEach>
 		</c:if>
@@ -150,18 +164,18 @@
 	
 	<div class="paging">
 		<c:if test="${startPage > BLOCKSIZE }">
-			[ <a href="${conPath }/Wcontent.do?pageNum=${startPage-1}&wno=${weddinghall.wno}"> 이전 </a> ]
+			[ <a href="${conPath }/Wcontent.do?pageNum=${startPage-1}&wno=${weddinghall.wno}&mid=${member.mid}"> 이전 </a> ]
 		</c:if>
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i == pageNum }">
 				<b> [ ${i } ] </b>
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/Wcontent.do?pageNum=${i}&wno=${weddinghall.wno}"> ${i } </a> ]
+				[ <a href="${conPath }/Wcontent.do?pageNum=${i}&wno=${weddinghall.wno}&mid=${member.mid}"> ${i } </a> ]
 			</c:if>
 		</c:forEach>
 		<c:if test="${endPage<pageCnt }">
-		  [ <a href="${conPath }/Wcontent.do?pageNum=${endPage+1}&wno=${weddinghall.wno}"> 다음 </a> ]
+		  [ <a href="${conPath }/Wcontent.do?pageNum=${endPage+1}&wno=${weddinghall.wno}&mid=${member.mid}"> 다음 </a> ]
 		</c:if>
 	</div>
 	

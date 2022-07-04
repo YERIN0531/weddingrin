@@ -35,6 +35,8 @@ import com.lec.weddingrin.service.RboardModifyService;
 import com.lec.weddingrin.service.RboardModifyViewService;
 import com.lec.weddingrin.service.RboardWriteService;
 import com.lec.weddingrin.service.ReplyListService;
+import com.lec.weddingrin.service.ReplyModifyService;
+import com.lec.weddingrin.service.ReplyModifyViewService;
 import com.lec.weddingrin.service.ReserveListService;
 import com.lec.weddingrin.service.Service;
 import com.lec.weddingrin.service.WContentService;
@@ -42,6 +44,7 @@ import com.lec.weddingrin.service.WListService;
 import com.lec.weddingrin.service.WLocalListService;
 import com.lec.weddingrin.service.WeddingReplyService;
 import com.lec.weddingrin.service.WeddingRsService;
+import com.lec.weddingrin.service.deleteReplyService;
 import com.lec.weddingrin.service.deleteZimservice;
 import com.lec.weddingrin.service.insertZimservice;
 
@@ -159,9 +162,9 @@ public class Controller extends HttpServlet {
 		
 			//댓글쓰기(weddingReply.do) 댓글 뿌리기(weddingReplyView.do) 댓글 삭제 
 		}else if(com.equals("/weddingReply.do")) {
-			service = new WeddingReplyService();
-			service.execute(request, response);
-			viewPage = "Wcontent.do";
+				service = new WeddingReplyService();
+				service.execute(request, response);
+				viewPage = "Wcontent.do";
 		}else if(com.equals("/insertZim.do")) {
 			service = new insertZimservice(); //찜 누눌렀을때 여기로 오고, request.setAttribute에 count 넣어주기  
 			service.execute(request, response);
@@ -170,7 +173,18 @@ public class Controller extends HttpServlet {
 			service = new deleteZimservice();
 			service.execute(request, response);
 			viewPage = "Wcontent.do";
-			
+		}else if(com.equals("/deleteReply.do")) {
+			service = new deleteReplyService();
+			service.execute(request, response);
+			viewPage ="Wcontent.do";
+		}else if(com.equals("/ReplyModifyView.do")) {
+			service = new ReplyModifyViewService();
+			service.execute(request, response);
+			viewPage = "wedding/replyModify.jsp";
+		}else if(com.equals("/replyModify.do")) {
+			service = new ReplyModifyService();
+			service.execute(request, response);
+			viewPage = "Wcontent.do";
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * 후기게시판 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */
@@ -248,6 +262,11 @@ public class Controller extends HttpServlet {
 			service = new ReserveListService();
 			service.execute(request, response);
 			viewPage = "myboard/Myboard.jsp";
+			/* * * * * * * * * * *  * * * * * * * * * * * *
+			 * * * * * * * * * 기타  요청  * * * * * * *
+			* * * * * * * * * * *  * * * * * * * * * * * * */
+		}else if(com.equals("/Info.do")) {
+			viewPage = "myboard/Info.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

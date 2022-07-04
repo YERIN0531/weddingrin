@@ -25,6 +25,20 @@
 	</script>
 </head>
 <body>
+	<c:if test="${not empty aloginErrorMsg }">
+		<script>
+			alert('${aloginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty adminCodeError }">
+		<script>
+			alert('${adminCodeError}');
+			history.back();
+		</script>
+	</c:if>
+	
+	
    <jsp:include page="../main/header.jsp"/>
    <section>
    <div id="main">
