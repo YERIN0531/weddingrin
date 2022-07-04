@@ -124,17 +124,18 @@ public class ZimDao {
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
 		ResultSet         rs    = null;
-		String sql = "SELECT * FROM WEDDINGHALL WHERE WNO IN(SELECT WNO FROM ZIM WHERE MID=?) ORDER BY WNO DESC";
+		String sql = "SELECT WNO, WNAME, WADDRESS, WLOC FROM WEDDINGHALL WHERE WNO IN(SELECT WNO FROM ZIM WHERE MID=?) ORDER BY WNO DESC";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int zno = rs.getInt("zno");
 				int wno = rs.getInt("wno");
-				Date zdate = rs.getDate("zdate");
-				zims.add(new ZimDto(zno, mid, wno, zdate));
+				String wname = rs.getString("wname");
+				String waddress = rs.getString("waddress");
+				String wloc = rs.getString("wloc");
+				zims.add(new ZimDto(0, mid, wno, null, wname, waddress, wloc));
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

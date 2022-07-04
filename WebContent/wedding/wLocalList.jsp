@@ -9,37 +9,47 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="${conPath }/css/wedding/wlist.css" rel="stylesheet">
-	<style>
-	
-	</style>
+	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
 		});
 	</script>
-	
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-	<div>&nbsp;</div>
-    <div id="lnb">
-            <ul>
-            <li><a href="${conPath }/WListView.do">전체목록</a></li>
-            <li><a href="${conPath }/WLocalListView.do">지역별</a></li>
-            <li><a href="${conPath }/ReviewList.do">후기게시판</a></li>
-            <li><a href="${conPath }/QnaList.do">문의사항</a></li>
-            </ul>
-            </div>
-   <section>
+	<form action="${conPath }/WLocalListView.do">
+	<table>
+	<caption>WEDDING_RIN</caption>
+		<tr><td>&nbsp;</td></tr> 
+		<tr>
+			<td>지역별</td>
+			<td>
+			<select name="wloc">
+				<option>선택하기</option>
+				<option>강남</option>
+				<option>구로</option>
+				<option>관악</option>
+				<option>서초</option>
+				<option>강서</option>
+				<option>강북</option>
+				<option>강동</option>
+			</select>
+			</td>
+			<td><input type="submit" value="찾기"></td>
+		</tr>
+	</table>
+	</form>		
+	
+	 <section>
    <div id="main">
    <div id="border">
    	<table>
-   		<caption>WEDDING_RIN</caption>
-		<tr><td>&nbsp;</td></tr>   	
+   		  	
    		
    		<tr>
 	   		<c:set var="idx" value="1"/>
-	   		<c:forEach var="dto" items="${wListView }">
+	   		<c:forEach var="dto" items="${wlocalListView }">
 		
 			<td>
 			<a href="${conPath }/Wcontent.do?wno=${dto.wno}&mid=${member.mid}"><img src="${conPath }/wimg/${dto.wimage}"></a>
@@ -59,36 +69,25 @@
    	
    	
    	<div class="paging">
-		<a href="${conPath }/WListView.do?pageNum=1">&lt;&lt;</a>
-		&nbsp; &nbsp; &nbsp;
-		<c:if test="${startPage>BLOCKSIZE }">
-			<a href="${conPath }/WListView.do?pageNum=${startPage-1}&wno=${weddinghall.wno}">&lt;</a>
-		</c:if>
-		<c:if test="${startPage<=BLOCKSIZE }">
-			&lt;
-		</c:if>
-		&nbsp; &nbsp; &nbsp;
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i == pageNum }">
 				[ <b>${i }</b> ]
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/WListView.do?pageNum=${i}&wno=${weddinghall.wno}">${i }</a> ]
+				[ <a href="${conPath }/WLocalListView.do?pageNum=${i}&wno=${weddinghall.wno}">${i }</a> ]
 			</c:if>
 		</c:forEach>
 		&nbsp; &nbsp; &nbsp;
 		<c:if test="${endPage < pageCnt }">
-			<a href="${conPath }/WListView.do?pageNum=${endPage+1}&wno=${weddinghall.wno}">&gt;</a>
+			<a href="${conPath }/WLocalListView.do?pageNum=${endPage+1}&wno=${weddinghall.wno}">&gt;</a>
 		</c:if>
-		<c:if test="${endPage == pageCnt }">
-			&gt;
-		</c:if>
-		&nbsp; &nbsp; &nbsp;
-		<a href="${conPath }/WListView.do?pageNum=${pageCnt}&wno=${weddinghall.wno}">&gt;&gt;</a>
 	</div>
    	</div>
    </div>
    </section>
-   <jsp:include page="../main/footer.jsp"/>
+
+
+
+<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

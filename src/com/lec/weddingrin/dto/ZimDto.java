@@ -8,6 +8,9 @@ public class ZimDto {
 	private String mid;
 	private int wno;
 	private Date zdate;
+	private String wname;
+	private String waddress;
+	private String wloc;
 	
 	public ZimDto() {}
 
@@ -16,6 +19,18 @@ public class ZimDto {
 		this.mid = mid;
 		this.wno = wno;
 		this.zdate = zdate;
+	}
+	
+	
+
+	public ZimDto(int zno, String mid, int wno, Date zdate, String wname, String waddress, String wloc) {
+		this.zno = zno;
+		this.mid = mid;
+		this.wno = wno;
+		this.zdate = zdate;
+		this.wname = wname;
+		this.waddress = waddress;
+		this.wloc = wloc;
 	}
 
 	public int getZno() {
@@ -50,10 +65,37 @@ public class ZimDto {
 		this.zdate = zdate;
 	}
 
+	public String getWname() {
+		return wname;
+	}
+
+	public void setWname(String wname) {
+		this.wname = wname;
+	}
+
+	public String getWaddress() {
+		return waddress;
+	}
+
+	public void setWaddress(String waddress) {
+		this.waddress = waddress;
+	}
+
+	public String getWloc() {
+		return wloc;
+	}
+
+	public void setWloc(String wloc) {
+		this.wloc = wloc;
+	}
+
 	@Override
 	public String toString() {
-		return "ZimDto [zno=" + zno + ", mid=" + mid + ", wno=" + wno + ", zdate=" + zdate + "]";
+		return "ZimDto [zno=" + zno + ", mid=" + mid + ", wno=" + wno + ", zdate=" + zdate + ", wname=" + wname
+				+ ", waddress=" + waddress + ", wloc=" + wloc + "]";
 	}
+
+	
 	
 	
 }

@@ -301,8 +301,6 @@ public class QnaDao {
 	public int replyBoard(String qid, String qtitle, String qcontent,
 			 String qip, int qgroup, int qstep, int qindent) {
 		preReplyStepA(qgroup, qstep);
-		// qgroup, qstep, qindent 원글정보
-		// qid, qtitle, qcontent, qip 답변글 정보
 		int result = FAIL;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
@@ -310,12 +308,13 @@ public class QnaDao {
 				"    VALUES (QNA_SEQ.NEXTVAL, ?,?,?, ?, ?, ?, ?)";
 		try {
 			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, qid);
 			pstmt.setString(2, qtitle);
 			pstmt.setString(3, qcontent);
 			pstmt.setInt(4, qgroup);
-			pstmt.setInt(5, qstep);
-			pstmt.setInt(6, qindent);
+			pstmt.setInt(5, qstep+1);
+			pstmt.setInt(6, qindent+1);
 			pstmt.setString(7, qip);
 			result = pstmt.executeUpdate();
 			System.out.println(result==SUCCESS? "답변쓰기성공":"답변쓰기실패");

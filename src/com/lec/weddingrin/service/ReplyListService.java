@@ -13,7 +13,7 @@ public class ReplyListService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String pageNum = request.getParameter("pageNum");
-		if(pageNum==null) {
+		if(pageNum==null || pageNum.equals("")) {
 			if(request.getAttribute("pageNum")==null) {
 				pageNum = "1";
 			}else {

@@ -19,7 +19,15 @@ import com.lec.weddingrin.service.MListService;
 import com.lec.weddingrin.service.MLoginService;
 import com.lec.weddingrin.service.MLogoutService;
 import com.lec.weddingrin.service.MidConfirmService;
+import com.lec.weddingrin.service.MyboardService;
+import com.lec.weddingrin.service.QboardContentService;
+import com.lec.weddingrin.service.QboardDeleteService;
 import com.lec.weddingrin.service.QboardListService;
+import com.lec.weddingrin.service.QboardModifyService;
+import com.lec.weddingrin.service.QboardModifyViewService;
+import com.lec.weddingrin.service.QboardReplyService;
+import com.lec.weddingrin.service.QboardReplyViewService;
+import com.lec.weddingrin.service.QboardWriteService;
 import com.lec.weddingrin.service.RboardContentService;
 import com.lec.weddingrin.service.RboardDeleteService;
 import com.lec.weddingrin.service.RboardListService;
@@ -27,9 +35,11 @@ import com.lec.weddingrin.service.RboardModifyService;
 import com.lec.weddingrin.service.RboardModifyViewService;
 import com.lec.weddingrin.service.RboardWriteService;
 import com.lec.weddingrin.service.ReplyListService;
+import com.lec.weddingrin.service.ReserveListService;
 import com.lec.weddingrin.service.Service;
 import com.lec.weddingrin.service.WContentService;
 import com.lec.weddingrin.service.WListService;
+import com.lec.weddingrin.service.WLocalListService;
 import com.lec.weddingrin.service.WeddingReplyService;
 import com.lec.weddingrin.service.WeddingRsService;
 import com.lec.weddingrin.service.deleteZimservice;
@@ -141,7 +151,11 @@ public class Controller extends HttpServlet {
 		}else if(com.equals("/WeddingRs.do")) {
 			service = new WeddingRsService();
 			service.execute(request, response);
-			viewPage = "Wcontent.do";
+			viewPage = "Wcontent.do"; 
+		}else if(com.equals("/WLocalListView.do")) {
+			service = new WLocalListService();
+			service.execute(request, response);
+			viewPage ="wedding/wLocalList.jsp";
 		
 			//댓글쓰기(weddingReply.do) 댓글 뿌리기(weddingReplyView.do) 댓글 삭제 
 		}else if(com.equals("/weddingReply.do")) {
@@ -195,6 +209,45 @@ public class Controller extends HttpServlet {
 			service = new QboardListService();
 			service.execute(request, response);
 			viewPage = "qboard/qnaList.jsp";
+		}else if(com.equals("/QnaWriteView.do")) {
+			viewPage = "qboard/qnaWrite.jsp";
+		}else if(com.equals("/QnaWrite.do")) {
+			service = new QboardWriteService();
+			service.execute(request, response);
+			viewPage = "QnaList.do";
+		
+		}else if(com.equals("/QnaContent.do")) {
+			service = new QboardContentService();
+			service.execute(request, response);
+			viewPage = "qboard/qnaContent.jsp";
+			
+		}else if(com.equals("/QnaModifyView.do")) {
+			service = new QboardModifyViewService();
+			service.execute(request, response);
+			viewPage = "qboard/qnaModify.jsp";
+			
+		}else if(com.equals("/QnaModify.do")) {
+			service = new QboardModifyService();
+			service.execute(request, response);
+			viewPage = "QnaList.do";
+		}else if(com.equals("/QnaDelete.do")) {
+			service = new QboardDeleteService();
+			service.execute(request, response);
+			viewPage = "QnaList.do";
+		}else if(com.equals("/QboardReplyView.do")) {
+			service = new QboardReplyViewService();
+			service.execute(request, response);
+			viewPage = "qboard/qnaReply.jsp";
+		}else if(com.equals("/QboardReply.do")) {
+			service = new QboardReplyService();
+			service.execute(request, response);
+			viewPage = "QnaList.do";
+		}else if(com.equals("/Myboard.do")) {
+//			service = new MyboardService();
+//			service.execute(request, response);
+			service = new ReserveListService();
+			service.execute(request, response);
+			viewPage = "myboard/Myboard.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

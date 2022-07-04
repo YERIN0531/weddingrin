@@ -141,6 +141,35 @@ public class WeddingDao {
 		}
 		return cnt;
 	}
+// 3.-2 지역별 웨딩홀 수 
+	public int localweddingTotCnt(String wloc) {
+		int cnt = 0;
+		Connection        conn  = null;
+		PreparedStatement pstmt = null;
+		ResultSet         rs    = null;
+		String sql = "SELECT COUNT(*) WCNT FROM WEDDINGHALL WHERE WLOC=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, wloc);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt("wcnt");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(rs   !=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn !=null) conn.close();
+			} catch (SQLException e) {System.out.println(e.getMessage());}
+		}
+		return cnt;
+	}
+	
+	
+	
+	
 //	 4. 웨딩홀 상세보기 
 	public WeddingDto getWeddinghall(int wno) {
 		WeddingDto wedding = null;

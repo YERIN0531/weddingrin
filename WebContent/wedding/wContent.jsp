@@ -21,8 +21,8 @@
 				var zimno = Number('${ZimCount }');
 				if(zimno==0){
 				$(this).attr('src','icon/heart.png');
-				location.href='${conPath}/insertZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
-				}else if(zimno==1){
+					location.href='${conPath}/insertZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
+				}else if(zimno>=1){
 					zimno=0;
 					$(this).attr('src','icon/love.png');
 					location.href='${conPath}/deleteZim.do?wno='+'${weddinghall.wno}&mid='+'${member.mid}';
@@ -56,7 +56,7 @@
 	<c:if test="${ZimCount eq 0}">
 	<img src="${conPath }/icon/love.png" class="heart"><!-- 안눌러진상태 -->
 			</c:if>
-	<c:if test="${ZimCount eq 1}">
+	<c:if test="${ZimCount >= 1}">
 	<img src="${conPath }/icon/heart.png" class="heart"> <!-- 눌러진상태 -->
 			</c:if>
 	</td></tr>

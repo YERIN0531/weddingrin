@@ -13,6 +13,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
+			$('tr').click(function(){
+				var qno = Number($(this).children().eq(0).text());
+				if(!isNaN(qno)){
+					location.href='${conPath}/QnaContent.do?qno='+qno+'&pageNum=${pageNum}';
+				}
+				
+			});
 		});
 	</script>
 </head>
@@ -39,15 +46,30 @@
 			<tr>
 			<td>${qna.qno }</td>
 			<td>${qna.qid }</td>
-			<td>${qna.rtitle }</td>
-			<td>${qna.rhit }</td>
-			<td><fmt:formatDate value="${qna.rdate }" type="date" dateStyle="short"/></td>
+			<td>${qna.qtitle }</td>
+			<td>${qna.qhit }</td>
+			<td><fmt:formatDate value="${qna.qdate }" type="date" dateStyle="short"/></td>
 			</tr>
 			</c:forEach>
 		</c:if>
 	</table>
 </body>
-	
+	<div class="paging">
+		<c:if test="${startPage > BLOCKSIZE }">
+			[ <a href="${conPath }/QnaList.do?pageNum=${startPage-1}"> 이전 </a> ]
+		</c:if>
+		<c:forEach var="i" begin="${startPage }" end="${endPage }">
+			<c:if test="${i == pageNum }">
+				<b> [ ${i } ] </b>
+			</c:if>
+			<c:if test="${i != pageNum }">
+				[ <a href="${conPath }/QnaList.do?pageNum=${i}"> ${i } </a> ]
+			</c:if>
+		</c:forEach>
+		<c:if test="${endPage<pageCnt }">
+		  [ <a href="${conPath }/QnaList.do?pageNum=${endPage+1}"> 다음 </a> ]
+		</c:if>
+	</div>
 	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
