@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/board/reviewwrite.css" rel="stylesheet">
 	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
@@ -18,30 +18,36 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
+	<div id="logos">
+		<p>REVIEW_WRITE</p>
+    </div>
+	<div id="border">
 	<form action="${conPath }/ReviewWrite.do" method="post" enctype="multipart/form-data">
-		<table>
-			<caption>글쓰기</caption>
+		<table id="writeboard">
+			<tr><td></td></tr>
 			<tr>
-			<td>제목</td>
-			<td><input type="text" name="rtitle" required="required"></td>
+			<th><b>제목</b></th>
+			<td><input type="text" name="rtitle" required="required" class="title"></td>
 			</tr>
 			<tr>
-			<td>본문</td>
-			<td><textarea name="rcontent" rows="3" cols="3"></textarea></td>
+			<th><b>본문</b></th>
+			<td><textarea name="rcontent" rows="10" cols="35" class="rcontent"></textarea></td>
 			</tr>
 			<tr>
-			<td>첨부파일</td>
+			<th><b>첨부파일</b></th>
 			<td><input type="file" name="rfilename"></td>
 			</tr>
+			<tr><td></td></tr>
 			<tr>
 			<td colspan="2">
-				<input type="submit" value="글쓰기">
-				<input type="reset" value="취소">
-				<input type="button" value="목록" onclick="location.href='${conPath}/ReviewList.do'">
+				<input type="submit" value="글쓰기" class="btn">
+				<input type="reset" value="취소" class="btn">
+				<input type="button" value="목록" class="btn" onclick="location.href='${conPath}/ReviewList.do'">
 			</td>
 			</tr>
 		</table>
 	</form>
+	</div>
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

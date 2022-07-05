@@ -18,22 +18,50 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
+<div>&nbsp;</div>
+    <div id="lnb">
+            <ul>
+            <li><a href="${conPath }/WListView.do">전체목록</a></li>
+            <li><a href="${conPath }/WLocalListView.do">지역별</a></li>
+            <li><a href="${conPath }/ReviewList.do">후기게시판</a></li>
+            <li><a href="${conPath }/QnaList.do">문의사항</a></li>
+            </ul>
+            </div>
 	<form action="${conPath }/WLocalListView.do">
-	<table>
-	<caption>WEDDING_RIN</caption>
-		<tr><td>&nbsp;</td></tr> 
+	<table id="selectlocal">
+	<caption class="localcaption">WEDDING_RIN</caption>
+		<tr><td>&nbsp;&nbsp;</td></tr> 
 		<tr>
 			<td>지역별</td>
 			<td>
-			<select name="wloc">
+			<select name="wloc" id="option">
 				<option>선택하기</option>
-				<option>강남</option>
+				<option>강서</option>
+				<option>양천</option>
 				<option>구로</option>
+				<option>영등포</option>
+				<option>금천</option>
+				<option>동작</option>
 				<option>관악</option>
 				<option>서초</option>
-				<option>강서</option>
-				<option>강북</option>
+				<option>강남</option>
+				<option>송파</option>
 				<option>강동</option>
+				<option>마포</option>
+				<option>은평</option>
+				<option>서대문</option>
+				<option>용산</option>
+				<option>중구</option>
+				<option>종로</option>
+				<option>성북</option>
+				<option>성동</option>
+				<option>동대문</option>
+				<option>광진</option>
+				<option>중랑</option>
+				<option>노원</option>
+				<option>강북</option>
+				<option>도봉</option>
+				<option>광진</option>
 			</select>
 			</td>
 			<td><input type="submit" value="찾기"></td>
@@ -41,12 +69,12 @@
 	</table>
 	</form>		
 	
-	 <section>
+   
+   <c:if test="${not empty wlocalListView }">
+   <section>
    <div id="main">
    <div id="border">
    	<table>
-   		  	
-   		
    		<tr>
 	   		<c:set var="idx" value="1"/>
 	   		<c:forEach var="dto" items="${wlocalListView }">
@@ -63,11 +91,7 @@
 			<c:set var="idx" value="${idx+1 }"/>
 		</c:forEach>
 		</tr>
-   		
-   	
    	</table>
-   	
-   	
    	<div class="paging">
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i == pageNum }">
@@ -85,7 +109,14 @@
    	</div>
    </div>
    </section>
-
+</c:if>
+   <c:if test="${empty wlocalListView }">
+   <section>
+   		<div id="beforelocal">
+    	<p>지역을 선택해 주세요</p>
+    	</div>
+    </section> 
+   </c:if>
 
 
 <jsp:include page="../main/footer.jsp"/>

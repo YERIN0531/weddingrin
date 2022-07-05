@@ -43,7 +43,6 @@
 	width:300px;
 	margin : 0 auto;
 	text-align: center;
-	font-size:
 	}
 	#tacontent{
 	float:left;
@@ -55,7 +54,7 @@
 	width:700px;
 	}
 	#tacontent .heart{
-	width:30px;
+	width:20px;
 	padding-left:670px;
 	}
 	#tacontent .love{
@@ -107,7 +106,7 @@
 	
 	#replyview{
 	margin: 0 auto;
-	padding-left : 200px;
+	padding-left : 390px;
 	font-family: 'IBM Plex Sans KR', sans-serif;
 	}
 	#replyview #tareply{
@@ -137,7 +136,7 @@
 	
 	}
 	#replyview .memo{
-	width:550px;
+	width:560px;
 	}
 	#replyview .id{
 	width:100px;
@@ -166,10 +165,11 @@
 	}
 	
 	#tareply .textreview{
-	margin-left:180px;
+	margin-left:90px;
 	margin-top:10px;
-	width:650px;
+	width:750px;
 	height:30px;
+	margin_bottom:50px;
 	}
 	
 	#tareply input[type="submit"]{
@@ -189,8 +189,8 @@
 	
 	 .paging{
 	 margin-top:10px;
-	 margin-left : 700px;
-	 margin-bottom : 20px;
+	 margin-left : 850px;
+	 margin-bottom : 30px;
 	 }
 	 .paging a{
 	  text-decoration: none;

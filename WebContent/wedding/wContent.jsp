@@ -150,7 +150,9 @@
 		<td class="id">${reply.mid }</td>
 		<td class="date"><fmt:formatDate value="${reply.wredate }" type="date" dateStyle="short"/></td>
 		<c:if test="${reply.mid eq member.mid }">
-		<td class="delete"><img src="${conPath }/icon/trash.png" class="trash"></td>
+		<td class="delete">
+		<a href="${conPath }/deleteReply.do?wreno=${reply.wreno}&mid=${member.mid}&wno=${reply.wno}"><img src="${conPath }/icon/trash.png" class="trash"></a>
+		</td>
 		</c:if>
 		<c:if test="${reply.mid != member.mid }">
 		<td class="delete"></td>
@@ -197,8 +199,8 @@
                showOtherMonths : true,
                dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
                changeYear : true, // 년을 바꿀 수 있는 셀렉트 박스 표시
-               minDate : '-100y', // 현재 날짜로부터 100년 이전까지 표시
-               maxDate : 'y', // 현재 날짜이전까지만 표시
+               minDate : 0, // 현재 날짜로부터 100년 이전까지 표시
+               maxDate : '10y', // 현재 날짜이전까지만 표시
                yearRange : 'c-100:c+100', // 년도 선택 셀렉트 
             });
    });  

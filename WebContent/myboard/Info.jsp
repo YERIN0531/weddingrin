@@ -22,7 +22,7 @@
 	}
 	#start{
 	margin:0 auto;
-	margin-top:140px;
+	margin-top:100px;
 	width:1000px;
 	text-align: justify;
 	font-size:1.1em;
@@ -53,11 +53,10 @@
 	#sign{
 	width:500px;
 	margin-bottom:80px;
-	margin-left:1100px;
+	margin-left:1400px;
 	}
 	#sign img{
 	width:150px;
-	
 	}
 	</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

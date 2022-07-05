@@ -1,0 +1,107 @@
+@charset "UTF-8";
+#logos{
+	width:500px;
+	margin:0 auto;
+	margin-top:50px;
+}                
+#logos p{
+	font-family: 'Domine', serif;
+    color: #757169;
+    font-size: 1.7em;
+    font-weight:bold;
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+}
+ #border {
+            width: 800px;
+            margin: 0 auto;
+            max-width: 650px;
+            margin-top: 30px;
+            margin-bottom:80px;
+            padding: 32px;
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }
+ section {
+            margin: 0 auto;
+            width: 80%;
+        }
+
+            section #main {
+            width: 100%;
+            }
+
+        
+        caption {
+            font-family: 'Domine', serif;
+            color: #757169;
+            font-size: 1.4em;
+            font-weight:bold;
+        }
+        .name{
+        	color:gray;
+        	font-size:0.8em;
+        }
+        table{
+        font-family: 'IBM Plex Sans KR', sans-serif;
+        margin:50px auto;
+        text-align: center;
+        }
+        table th{
+        padding-left: 0px;
+        }
+        table td {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            font-size: 1.0em;
+            padding: 5px;
+            padding-left: 0px;
+            width:300px;
+        }
+
+        input {
+            border: 1px solid white;
+            border-bottom: 2px solid lightgray;
+            width: 260px;
+            height: 28px;
+            text-align: center;
+        }
+        textarea{
+        border: 2px solid lightgray;
+        }
+
+/*             input[type='button'] { */
+/*                 width: 330px; */
+/*                 height: 35px; */
+/*                 margin: 20px 50px; */
+/*                 background-color: #757169; */
+/*                 color: white; */
+               
+/*             } */
+            
+            
+            .paging {text-align: center; margin-bottom: 50px;}
+            .btn{
+            	width: 100px;
+          		height: 28px;
+            	margin-left:10px;
+            	background-color: #757169;
+            	color:white;
+            	border:none;
+            }
+            
+            #replyview #tareply{
+            width:1000px;
+            height:400px;
+            margin: 0 auto;
+            border : 1px solid red;
+            }
+            img{
+            width:600px;
+            height:400px;
+            }

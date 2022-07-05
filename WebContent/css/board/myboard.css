@@ -1,0 +1,95 @@
+@charset "UTF-8";
+ #logos{
+	width:500px;
+	margin:0 auto;
+	margin-top:50px;
+}                
+#logos p{
+	font-family: 'Domine', serif;
+    color: #757169;
+    font-size: 1.7em;
+    font-weight:bold;
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+}
+#wrap{
+	width:1200px;
+	margin:15px auto;
+}
+	#memberinfo{
+	width:1000px;
+	margin:0 auto;	
+	}
+	#memberinfo table{
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	border: 1px solid black;
+	width:400px;
+	margin:0 auto;
+	}
+	#memberinfo table tr{}
+	#memberinfo table tr th{
+	width:200px;
+	}
+	#memberinfo table tr td{
+	width:200px;
+	text-align: center;
+	}
+	#memberinfo table .name{
+	font-weight:bold;
+	font-size:1.3em;
+	}
+	#memberinfo .btn{
+	width:100px;
+	height:30px;
+	margin-left:25px;
+	background-color: #757169;
+	color:white;
+	border:none;
+	}
+		
+	#reserveinfo{
+	width:700px;
+	margin:30px auto;
+	text-align: center;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	}
+		#reserveinfo button{
+		border:none;
+		width:200px;
+		height:30px;
+		background-color : lightgray;
+		background-color : #757169;
+		color:white;
+		}
+		#reserveinfo #show1{
+		}
+		#reserveinfo #show1 table{
+		width:500px;
+		padding-left:200px;
+		}
+		#reserveinfo #show1 table tr{}
+		#reserveinfo #show1 table tr th{}
+		#reserveinfo #show1 table tr td{
+		border:1px dashed lightgray;
+		}
+		
+	#ziminfo{
+	width:700px;
+	margin:30px auto;
+	text-align: center;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	}
+		#ziminfo button{
+		border:none;
+		width:200px;
+		height:30px;
+		background-color : lightgray;
+		background-color : #757169;
+		color:white;
+		}
+		#ziminfo #show2{}
+		#ziminfo #show2 table{
+		width:700px;
+		}
+		#ziminfo 

@@ -16,7 +16,6 @@
             color: black;
             font-size: 1.7em;
             font-weight:bold;
-              padding-left:30px;
 	}
 	img{
 	width:300px;
@@ -70,3 +69,31 @@
                             font-size:1.0em;
                             
                         }
+
+#selectlocal{
+	 font-family: 'IBM Plex Sans KR', sans-serif;
+	 padding-left:80px;
+}
+#selectlocal td{
+	padding-right:30px;
+}
+#selectlocal input[type="submit"]{
+	border:none;
+	width:100px;
+	height:30px;
+}
+#option{
+width:400px;	
+height:30px;
+}
+#beforelocal{
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	border: 1px dashed lightgray;
+	width:1000px;
+	height:100px;
+	line-height:100px;
+	text-align: center;
+	margin: 50px auto;
+}
+.localcaption{
+}

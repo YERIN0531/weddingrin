@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.lec.weddingrin.dao.ReserveDao;
+import com.lec.weddingrin.dto.MemberDto;
 import com.lec.weddingrin.dto.ReserveDto;
 
 public class WeddingRsService implements Service {
@@ -14,7 +15,10 @@ public class WeddingRsService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// 2. 예약하기 
-				String mid = request.getParameter("mid");
+			HttpSession session = request.getSession();
+			MemberDto member = (MemberDto) session.getAttribute("member");
+			if(member!=null) {
+				String mid = member.getMid();
 				int wno = Integer.parseInt(request.getParameter("wno"));				
 				String wrateStr = request.getParameter("wrate");//2022-12-12 12:00:00
 				String wtimeStr = request.getParameter("wtime");
@@ -32,6 +36,9 @@ public class WeddingRsService implements Service {
 				}else {//예약 실패 
 					request.setAttribute("reserveResult", "예약이 실패되었습니다");
 				}
+			}else {
+				request.setAttribute("reserveResult", "로그인해");
+			}
 	}
 
 }

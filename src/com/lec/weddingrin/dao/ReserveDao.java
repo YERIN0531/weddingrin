@@ -1,7 +1,6 @@
 package com.lec.weddingrin.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.lec.weddingrin.dto.QnaDto;
 import com.lec.weddingrin.dto.ReserveDto;
 
 public class ReserveDao {

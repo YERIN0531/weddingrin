@@ -1,0 +1,101 @@
+@charset "UTF-8";
+	#lnb {
+                margin: 5px auto;
+                width: 80%;
+                border-top:1px dashed gray;
+                border-bottom: 1px dashed gray;
+                height: 50px;
+            }
+
+                 #lnb ul {
+                    overflow: hidden;
+                    height: 50px;
+                }
+
+                     #lnb ul li {
+                        list-style: none;
+                        float: left;
+                        line-height: 50px;
+                        width: 25%;
+                        text-align: center;
+                    }
+
+                         #lnb ul li a {
+                            font-family: 'IBM Plex Sans KR', sans-serif;
+                            text-decoration: none;
+                            color: black;
+                            font-size:1.0em;
+                            
+                        }
+#logos{
+	width:500px;
+	margin:20px auto;
+	margin-top:50px;
+}                
+#logos p{
+	font-family: 'Domine', serif;
+    color: #757169;
+    font-size: 1.7em;
+    font-weight:bold;
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+}
+
+#wrap{
+	width:1000px;
+	margin: 10px auto;
+	margin-top:30px;
+	
+}
+#writeform{
+	width:700px;
+	height:50px;
+	line-height:50px;	
+	margin:15px auto;
+	text-align: center;
+	border:1px dashed #757169;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	
+}
+#writeform table tr td a{
+	padding-left:200px;
+	text-decoration: none;
+	color:#757169;
+}
+#writeform table tr td a .afterlogin{
+	padding-left:500px;
+	text-decoration: none;
+	color:#757169;
+	
+}
+
+#listform{
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	margin:0 auto;
+	text-align: center;
+}
+#listform table{
+	width:1000px;
+}
+#listform table tr{
+
+}
+
+#listform table tr th{
+	background-color:#757169;
+	color : white;
+	height:30px;
+	font-size:0.9em;
+}
+#listform table tr td{
+	height:40px;
+	font-size:0.9em;
+	border-bottom: 1px dotted #757169;
+}
+.paging{
+	width:100px;
+	margin:0 auto;
+	margin-bottom:30px;
+	color:#757169;
+}

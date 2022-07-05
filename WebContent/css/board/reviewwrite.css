@@ -1,0 +1,114 @@
+@charset "UTF-8";
+ 		 #border {
+            width: 800px;
+            margin: 0 auto;
+            max-width: 500px;
+            margin-top: 30px;
+            margin-bottom:80px;
+            padding: 32px;
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }	
+        #logos{
+	width:500px;
+	margin:0 auto;
+	margin-top:50px;
+}                
+#logos p{
+	font-family: 'Domine', serif;
+    color: #757169;
+    font-size: 1.7em;
+    font-weight:bold;
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+}
+ 
+ 
+ 
+ 			
+ 			#writeboard{
+            width:600px;
+            margin: 0 auto;
+			padding-left:45px;
+            }
+            
+            #writeboard tr{
+            height:20px;
+            }
+            #writeboard th{
+            padding:0px;
+            color:gray;
+            }
+            #writeboard td{
+            padding-bottom: 10px;
+            }
+            #writeboard .title{
+            border: 1px solid lightgray;
+            height:30px;
+            width:260px;
+            border-radius: 10px;
+            }
+            #writeboard .rcontent{
+            border:1px solid lightgray;
+            border-radius: 10px;
+            }
+           
+           
+           
+           #writeqboard{
+            width:600px;
+            margin: 0 auto;
+			padding-left:55px;
+            }
+            
+            #writeqboard tr{
+            height:20px;
+            }
+            #writeqboard th{
+            padding:0px;
+            color:gray;
+            }
+            #writeqboard td{
+            padding-bottom: 10px;
+            }
+            #writeqboard .title{
+            border: 1px solid lightgray;
+            height:30px;
+            width:260px;
+            border-radius: 10px;
+            }
+            #writeqboard .qcontent{
+            border:1px solid lightgray;
+            border-radius: 10px;
+            }
+           
+           #border #writeqboard .btn{
+            width:100px;
+            height:30px;
+            margin-left:15px;
+            margin-top:10px;
+            background-color: #757169;
+            color:white;
+            border: none;
+            }
+           
+           
+           
+           
+           
+           
+            #border #writeboard .btn{
+            width:100px;
+            height:30px;
+            margin-left:25px;
+            background-color: #757169;
+            color:white;
+            border: none;
+            }
+            

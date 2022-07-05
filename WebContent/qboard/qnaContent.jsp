@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/board/boardcontent.css" rel="stylesheet">
 	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
@@ -18,19 +18,23 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
+<div id="logos">
+		<p>QNA_CONTENT</p>
+    </div>
+	<div id="border">
 	<table>
-		<caption>${qnacontent.qno }글 상세보기</caption>
+		<caption>${qnacontent.qno }no CONTENT</caption>
 		<tr>
-			<td>작성자</td>
-			<td>${qnacontent.qid }님</td>
+			<td><b>작성자</b></td>
+			<td><b>${qnacontent.qid }님</b></td>
 		</tr>
 		<tr>
-			<td>제목</td>
-			<td>${qnacontent.qtitle }</td>
+			<td><b>제목</b></td>
+			<td><b>${qnacontent.qtitle }</b></td>
 		</tr>
 		<tr>
-			<td>본문</td>
-			<td><pre>${qnacontent.qcontent }</pre></td>
+			<td><b>본문</b></td>
+			<td><b><pre>${qnacontent.qcontent }</pre></b></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -48,6 +52,7 @@
 			</td>
 		</tr>
 	</table>
+	</div>
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

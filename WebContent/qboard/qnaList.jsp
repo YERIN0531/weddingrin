@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/board/review.css" rel="stylesheet">
 	<style></style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
@@ -25,17 +25,35 @@
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
+	<div>&nbsp;</div>
+    	<div id="lnb">
+            <ul>
+	            <li><a href="${conPath }/WListView.do">전체목록</a></li>
+	            <li><a href="${conPath }/WLocalListView.do">지역별</a></li>
+	            <li><a href="${conPath }/ReviewList.do">후기게시판</a></li>
+	            <li><a href="${conPath }/QnaList.do">문의사항</a></li>
+            </ul>
+          </div>
+         <div id="logos">
+			<p>QNA_BOARD</p>
+         </div>
+	<div id="wrap">
+	<div id="writeform">
 	<table>
 		<tr><td>
 			<c:if test="${not empty member }">
-				<a href="${conPath }/QnaWriteView.do">글쓰기</a>
+				<a href="${conPath }/QnaWriteView.do">&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;글쓰기</a>
 			</c:if>
 			<c:if test="${empty member }">
 				<a href="${conPath }/memberLoginView.do">글쓰기는 사용자 로그인 후에 이용 가능합니다</a>
 			</c:if>
 		</td></tr>
 	</table>
-	
+	</div> <!-- writeform -->
+	<div id="listform">
 	<table>
 		<tr><th>글번호</th><th>작성자</th><th>글제목</th><th>조회수</th><th>날짜</th></tr>
 		<c:if test="${totCnt==0 }">
@@ -53,7 +71,8 @@
 			</c:forEach>
 		</c:if>
 	</table>
-</body>
+	</div> <!-- listform -->
+	</div> <!-- wrap -->
 	<div class="paging">
 		<c:if test="${startPage > BLOCKSIZE }">
 			[ <a href="${conPath }/QnaList.do?pageNum=${startPage-1}"> 이전 </a> ]

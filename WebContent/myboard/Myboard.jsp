@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${conPath }/css/style.css" rel="stylesheet">
+<link href="${conPath }/css/board/myboard.css" rel="stylesheet">
 	<style>
 		#show1{
 		display:none;
@@ -39,65 +39,72 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-	<table>
-		<caption>INFORMATION</caption>
-			<tr><td colspan="2" class="name">${mDto.mname }회원</td></tr>
-			<tr><td colspan="2">&nbsp;</td></tr>
-			<tr><th>회원아이디</th>
-					<td><input type="text" name="mid" value="${member.mid }"
-									readonly="readonly">
-					</td>
-			</tr>
-			<tr><th>회원이름</th>
-					<td><input type="text" name="mname" value="${member.mname }"
-									readonly="readonly">
-					</td>
-			</tr>
-			<tr><th>메일</th><td><input type="email" name="memail" value="${member.memail }" readonly="readonly"></td></tr>
-			<tr><th>생년월일</th>
-					<td colspan="2">
-						<input type="text" name="mbirth" id="mbirth" value="${member.mbirth }" id="birth" readonly="readonly">
-					</td>
-			</tr>
-			<tr><th>주소</th>
-					<td colspan="2">
-						<input type="text" name="maddress" value="${member.maddress }" readonly="readonly">
-					</td>
-			</tr>
-			<tr><td colspan="2">&nbsp;</td></tr>
-			<tr><td colspan="3">
-						<input type="button" value="이전" onclick="history.go(-1)" class="btn">
-						<input type="button" value="회원삭제" 
-								onclick="location.href='${conPath}/withdrawal.do'" class="btn">
-						<input type="button" value="내정보수정"
-								onclick="#">
-					</td>
-			</tr>
-		</table>
-		
-		
-		<button class="1">예약현황가져오기</button>
-		<div id="show1">
+	<div id="logos">
+		<p>INFOMATION</p>
+    </div>
+	<div id="wrap">
+		<div id="border">
+		<div id="memberinfo">
 			<table>
-				<caption>예약현황가져오기</caption>
-				<tr><th>예약번호</th><th>예약자</th><th>홀번호</th><th>예약날짜</th></tr>
-				<c:forEach items="${reserve }" var="rs">
-				<tr>
-				<td>${rs.rsno }</td>
-				<td>${rs.mid }</td>
-				<td>${rs.wno }</td>
-				<td><fmt:formatDate value="${rs.wdate }" type="date" dateStyle="short"/></td>
-				</tr>
-				</c:forEach>
-					
-			</table>
+					<tr><td colspan="2" class="name">${member.mname }회원</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><th>회원아이디</th>
+							<td><input type="text" name="mid" value="${member.mid }"
+											readonly="readonly">
+							</td>
+					</tr>
+					<tr><th>회원이름</th>
+							<td><input type="text" name="mname" value="${member.mname }"
+											readonly="readonly">
+							</td>
+					</tr>
+					<tr><th>메일</th><td><input type="email" name="memail" value="${member.memail }" readonly="readonly"></td></tr>
+					<tr><th>생년월일</th>
+							<td colspan="2">
+								<input type="text" name="mbirth" id="mbirth" value="${member.mbirth }" id="birth" readonly="readonly">
+							</td>
+					</tr>
+					<tr><th>주소</th>
+							<td colspan="2">
+								<input type="text" name="maddress" value="${member.maddress }" readonly="readonly">
+							</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="3">
+								<input type="button" value="이전" onclick="history.go(-1)" class="btn">
+								<input type="button" value="회원삭제" 
+										onclick="location.href='${conPath}/withdrawal.do'" class="btn">
+								<input type="button" value="내정보수정"
+										onclick="#" class="btn">
+							</td>
+					</tr>
+				</table>
+			</div>
+		
+		<div id="reserveinfo">
+			<button class="1">예약현황</button>
+			<div id="show1">
+				<table>
+					<tr><th>예약번호</th><th>예약자</th><th>홀번호</th><th>예약날짜</th></tr>
+					<c:forEach items="${reserve }" var="rs">
+					<tr>
+					<td>${rs.rsno }</td>
+					<td>${rs.mid }</td>
+					<td>${rs.wno }</td>
+					<td><fmt:formatDate value="${rs.wdate }" type="date" dateStyle="short"/></td>
+					</tr>
+					</c:forEach>
+						
+				</table>
+			</div>
 		</div>
 		<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		
+		<div id="ziminfo">
 		<button class="2">찜한목록가져오기</button>
 		<div id="show2">
 		<table>
-			<caption>내가 찜한 목록 가져오기</caption>
-			<tr><th>홀번호</th><th>아이디</th><th>홀번호</th><th>찜한날짜</th></tr>
+			<tr><th>번호</th><th>홀</th><th>주소</th><th>위치</th></tr>
 				<c:forEach items="${zimlist }" var="zim">
 				<tr>
 				<td>${zim.wno }</td>
@@ -108,7 +115,9 @@
 				</c:forEach>
 			
 		</table>
-		</div>
+		</div><!-- show2 -->
+		</div><!--ziminfo-->
+	</div><!-- wrap -->
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
