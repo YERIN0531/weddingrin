@@ -1,8 +1,22 @@
 @charset "UTF-8";
+ #memberinfo {
+            width: 600px;
+            margin: 0 auto;
+            max-width: 500px;
+            margin-top: 50px;
+            margin-bottom:80px;
+            padding: 20px;
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+}
  #logos{
 	width:500px;
 	margin:0 auto;
-	margin-top:50px;
 }                
 #logos p{
 	font-family: 'Domine', serif;
@@ -15,25 +29,26 @@
 }
 #wrap{
 	width:1200px;
-	margin:15px auto;
+	margin:50px auto;
 }
-	#memberinfo{
-	width:1000px;
-	margin:0 auto;	
-	}
+/* 	#memberinfo{ */
+/* 	width:1000px; */
+/* 	margin:0 auto;	 */
+/* 	} */
 	#memberinfo table{
 	font-family: 'IBM Plex Sans KR', sans-serif;
-	border: 1px solid black;
-	width:400px;
+	width:450px;
 	margin:0 auto;
+	padding:20px;
 	}
 	#memberinfo table tr{}
 	#memberinfo table tr th{
-	width:200px;
+	width:230px;
 	}
 	#memberinfo table tr td{
-	width:200px;
+	width:230px;
 	text-align: center;
+	padding-top:10px;
 	}
 	#memberinfo table .name{
 	font-weight:bold;
@@ -47,6 +62,20 @@
 	color:white;
 	border:none;
 	}
+	#memberinfo input[type="text"]{
+	height:25px;
+	width:230px;
+	border:1px solid lightgray;
+	border-radius: 3px;
+	padding-left:10px;
+	}
+	#memberinfo input[type="email"]{
+	height:25px;
+	width:230px;
+	border:1px solid lightgray;
+	border-radius: 3px;
+	padding-left:10px;
+	}
 		
 	#reserveinfo{
 	width:700px;
@@ -57,10 +86,15 @@
 		#reserveinfo button{
 		border:none;
 		width:200px;
-		height:30px;
+		height:50px;
 		background-color : lightgray;
-		background-color : #757169;
+		background-color : white;
 		color:white;
+		color:#757169;
+		font-family: 'Domine', serif;
+		font-size:1.8em;
+		font-weight:bold;
+		padding-right:10px;
 		}
 		#reserveinfo #show1{
 		}
@@ -71,25 +105,58 @@
 		#reserveinfo #show1 table tr{}
 		#reserveinfo #show1 table tr th{}
 		#reserveinfo #show1 table tr td{
-		border:1px dashed lightgray;
+		border-bottom:1px dashed lightgray;
+		}
+		#reserveinfo p{
+		color:lightgray;
+		font-size:0.9em;
 		}
 		
 	#ziminfo{
 	width:700px;
 	margin:30px auto;
+	margin-bottom:100px;
 	text-align: center;
 	font-family: 'IBM Plex Sans KR', sans-serif;
 	}
 		#ziminfo button{
 		border:none;
 		width:200px;
-		height:30px;
+		height:50px;
 		background-color : lightgray;
-		background-color : #757169;
+		background-color : white;
 		color:white;
+		color:#757169;
+		font-family: 'Domine', serif;
+		font-size:1.8em;
+		font-weight:bold;
+		padding-right:10px;
 		}
 		#ziminfo #show2{}
 		#ziminfo #show2 table{
 		width:700px;
 		}
-		#ziminfo 
+		#ziminfo #show2 table tr td{
+		border-bottom:1px dashed lightgray;
+		}
+		#ziminfo p{
+		color:lightgray;
+		font-size:0.9em;
+		}
+		#middle{
+		width:1500px;
+		margin:0px auto;
+		}
+		
+		#logoss{
+	width:800px;
+	margin:0 auto;
+	margin-top: 80px;
+	padding-right:30px;
+	}
+	#logoss img{
+	width:500px;
+	height:230px;
+	text-align: center;
+	padding-left:170px;
+	}

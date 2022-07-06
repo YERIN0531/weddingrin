@@ -39,11 +39,14 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
+	<div id="logoss">
+			<img src="${conPath }/icon/logo.png"> 
+		</div>
+	<div id="middle">
 	<div id="logos">
 		<p>INFOMATION</p>
     </div>
 	<div id="wrap">
-		<div id="border">
 		<div id="memberinfo">
 			<table>
 					<tr><td colspan="2" class="name">${member.mname }회원</td></tr>
@@ -72,17 +75,17 @@
 					<tr><td colspan="2">&nbsp;</td></tr>
 					<tr><td colspan="3">
 								<input type="button" value="이전" onclick="history.go(-1)" class="btn">
-								<input type="button" value="회원삭제" 
-										onclick="location.href='${conPath}/withdrawal.do'" class="btn">
-								<input type="button" value="내정보수정"
-										onclick="#" class="btn">
+								<input type="button" value="정보수정" 
+										onclick="location.href='${conPath}/memberModifyView.do'" class="btn">
+								<input type="button" value="메인가기"
+										onclick="location.href='${conPath}/main.do'" class="btn">
 							</td>
 					</tr>
 				</table>
-			</div>
-		
+			</div><!-- memberInfo -->
 		<div id="reserveinfo">
-			<button class="1">예약현황</button>
+			<button class="1">RESERVATION</button>
+			<div><p>예약을 확인하시고 싶으시면 클릭하세요</p></div>
 			<div id="show1">
 				<table>
 					<tr><th>예약번호</th><th>예약자</th><th>홀번호</th><th>예약날짜</th></tr>
@@ -98,10 +101,10 @@
 				</table>
 			</div>
 		</div>
-		<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
 		
 		<div id="ziminfo">
-		<button class="2">찜한목록가져오기</button>
+		<button class="2">SELECT</button>
+		<div><p>내가 찜한 목록을 확인하시고 싶으시면 클릭하세요</p></div>
 		<div id="show2">
 		<table>
 			<tr><th>번호</th><th>홀</th><th>주소</th><th>위치</th></tr>
@@ -117,7 +120,9 @@
 		</table>
 		</div><!-- show2 -->
 		</div><!--ziminfo-->
+	
 	</div><!-- wrap -->
+	</div><!-- middle -->
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

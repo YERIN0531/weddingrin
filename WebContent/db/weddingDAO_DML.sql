@@ -1,15 +1,25 @@
 -- ★ ★ 1. 회원(MEMBER) 테이블 DAO ★ ★ --
 
 -- 1. 아이디 중복체크
-SELECT * FROM MEMBER WHERE MID='aaa';
+SELECT * FROM MEMBER WHERE MID='yerin';
 
 -- 2. 회원가입하기 
 INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
                     'aaa', '1111', '홍길동', '010-0000-0000', 'hong@naver.com','1990-01-01','서울 강남구');
 INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
-                    'bbb', '2222', '서길동', '010-1111-1111', 'seo@naver.com','1990-02-01','서울 마포구');
+                    'yerin', '2222', '서예린', '010-1111-1111', 'seo@naver.com','1995-05-31','서울 구로구');
+INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
+                    'zeolim', '2222', '윤정임', '010-1111-2222', 'yoon@naver.com','1995-08-22','서울 용산구');
+INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
+                    'jinyoung', '2222', '최진영', '010-1111-3333', 'choi@naver.com','1999-12-03','서울 논현');
+INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
+                    'dongjun', '2222', '오동준', '010-1111-4444', 'oh@naver.com','1995-10-10','서울 강남구');
+INSERT INTO MEMBER(MID, MPW, MNAME, MTEL, MEMAIL, MBIRTH, MADDRESS)VALUES(
+                    'bin', '2222', '김빈', '010-1111-5555', 'kim@naver.com','1996-08-26','서울 광진구');                
+
+select * from member;
 -- 3. 로그인(MID/MPW)
-SELECT * FROM MEMBER WHERE MID='aaa' AND MPW='1';
+SELECT * FROM MEMBER WHERE MID='aaa' AND MPW='111';
 
 -- 4. MID로 DTO 불러오기 (GETMEMBER)
 SELECT * FROM MEMBER WHERE MID='aaa';
@@ -17,9 +27,11 @@ SELECT * FROM MEMBER WHERE MID='aaa';
 UPDATE MEMBER SET MPW = '1111',
                     MNAME = '이길동',
                     MEMAIL = 'yi@naver.com',
-                    MADDRESS = '서울 구로구'
+                    MADDRESS = '서울 강서구'
         WHERE MId='aaa';
 SELECT * FROM MEMBER;
+
+commit;
 -- 6. 회원리스트
 SELECT * FROM (SELECT ROWNUM RN, A.* FROM 
                         (SELECT * FROM MEMBER ORDER BY MRDATE DESC) A)
@@ -30,16 +42,15 @@ SELECT COUNT(*) CNT FROM MEMBER;
 DELETE FROM MEMBER WHERE MID = 'aaa';
 -- 9. 이메일 중복체크 
 SELECT * FROM MEMBER;
-SELECT * FROM MEMBER WHERE MEMAIL='yi@naver.com';
+SELECT * FROM MEMBER WHERE MEMAIL='seo@naver.com';
 COMMIT;
 
 -- ★ ★ 2. 관리자(ADMIN) 테이블 DAO ★ ★ --
 -- 1. 관리자 등록하기 (AID, APW, ACODE)  //ACODE를 정해놓고 '111'이 아니면 '틀렸습니다'뿌리기
-INSERT INTO ADMIN (AID, APW, ACODE) VALUES ('adminaa','111','ABCD');
-INSERT INTO ADMIN (AID, APW, ACODE) VALUES ('admin','1','a');
+INSERT INTO ADMIN (AID, APW, ACODE) VALUES ('admin','1','A');
 
 -- 2. 로그인(MID, APW) 
-SELECT * FROM ADMIN WHERE AID='adminaa' AND APW='111';
+SELECT * FROM ADMIN WHERE AID='admin' AND APW='1';
 -- 3. 로그인 후 세션에 넣을 용도 ADMIN ID로 DTO 가지고 오기 
 SELECT * FROM ADMIN WHERE AID = 'adminaa';
 
@@ -56,18 +67,13 @@ SELECT COUNT(*) RCNT FROM REVIEWBOARD;
 
 -- 3. 글쓰기
 INSERT INTO REVIEWBOARD (RNO, MID, RTITLE, RCONTENT, RFILENAME, RIP)
-    VALUES (REVIEW_SEQ.NEXTVAL, 'aaa','title','content',null, 
+    VALUES (REVIEW_SEQ.NEXTVAL, 'yerin','강남에선 여기가 제일 최고','상담사도 친절하시고, 홀 분위기도 너무 좋아요!',null, 
          '192.168.10.151');
-
 INSERT INTO REVIEWBOARD (RNO, MID, RTITLE, RCONTENT, RFILENAME, RIP)
-    VALUES (REVIEW_SEQ.NEXTVAL, 'bbb','title2','content2',null, 
-         '192.168.10.152');
-
-INSERT INTO REVIEWBOARD (RNO, MID, RTITLE, RCONTENT, RFILENAME, RIP)
-    VALUES (REVIEW_SEQ.NEXTVAL, 'aaa','title3','content3','1.png', 
+    VALUES (REVIEW_SEQ.NEXTVAL, 'zeolim','위더스짱','생각보다 너무 좋아서 놀랬습니다..','1.png', 
          '192.168.10.152');
 -- 4. HIT 올리기
-UPDATE REVIEWBOARD SET RHIT = RHIT+1 WHERE RNO=2;
+UPDATE REVIEWBOARD SET RHIT = RHIT+1 WHERE RNO=17;
 SELECT * FROM REVIEWBOARD;
 
 -- 5. 게시판 프라이머키로 DTO 가지고 오기 
@@ -101,13 +107,11 @@ SELECT COUNT(*) QCNT FROM QNABOARD;
 
 -- 3. 글 쓰기(원글)
 INSERT INTO QNABOARD (QNO, QID, QTITLE, QCONTENT,  QGROUP, QSTEP, QINDENT, QIP)
-    VALUES (QNA_SEQ.NEXTVAL, 'aaa','title','content', QNA_SEQ.CURRVAL, 0, 0, '192.168.10.151');
+    VALUES (QNA_SEQ.NEXTVAL, 'yerin','가격문의 하겠습니다','content', QNA_SEQ.CURRVAL, 0, 0, '192.168.10.151');
 INSERT INTO QNABOARD (QNO, QID, QTITLE, QCONTENT,  QGROUP, QSTEP, QINDENT, QIP)
-    VALUES (QNA_SEQ.NEXTVAL, 'bbb','title2','content2', QNA_SEQ.CURRVAL, 0, 0, '191.168.10.151');
+    VALUES (QNA_SEQ.NEXTVAL, 'zeolim','예약이 안됩니다','content2', QNA_SEQ.CURRVAL, 0, 0, '191.168.10.151');
 INSERT INTO QNABOARD (QNO, QID, QTITLE, QCONTENT,  QGROUP, QSTEP, QINDENT, QIP)
-    VALUES (QNA_SEQ.NEXTVAL, 'ccc','title3','content3', QNA_SEQ.CURRVAL, 0, 0, '193.168.10.151');
-INSERT INTO QNABOARD (QNO, QID, QTITLE, QCONTENT,  QGROUP, QSTEP, QINDENT, QIP)
-    VALUES (QNA_SEQ.NEXTVAL, 'ddd','title4','content4', QNA_SEQ.CURRVAL, 0, 0, '194.168.10.151');
+    VALUES (QNA_SEQ.NEXTVAL, 'dongjun','위더스웨딩홀 문의요!','content3', QNA_SEQ.CURRVAL, 0, 0, '193.168.10.151');
 SELECT * FROM QNABOARD;
 -- 4. FHIT 하나 올리기
 UPDATE QNABOARD SET QHIT = QHIT +1 WHERE QNO=1;
@@ -126,9 +130,7 @@ ROLLBACK;
 UPDATE QNABOARD SET QSTEP = QSTEP+1 WHERE QGROUP =1 AND QSTEP>0;
 -- 9. 답변글 쓰기 
 INSERT INTO QNABOARD (QNO, QID, QTITLE, QCONTENT,  QGROUP, QSTEP, QINDENT, QIP)
-    VALUES (QNA_SEQ.NEXTVAL, '관리자','REPLY','content', 1, 1, 1, '192.168.10.151');
-    
-
+    VALUES (QNA_SEQ.NEXTVAL, 'admin','답변','답글입니다', 1, 1, 1, '192.168.10.151');
 
 SELECT * FROM QNABOARD ORDER BY QGROUP DESC, QSTEP;
 -- 10. 회원탈퇴 하려는 사람이 쓴 글 모두 삭제
@@ -182,12 +184,12 @@ INSERT INTO WEDDINGHALL (WNO, WNAME, WADDRESS, WCONTENT, WPRICE, WIMAGE, WLOC)
 -- ★ ★ 5. 댓글쓰기 테이블 DAO ★ ★ --
 -- 1. 댓글쓰기
 INSERT INTO WEDDINGREPLY (WRENO, WMEMO, MID, WNO)
-VALUES (REPLY_SEQ.NEXTVAL, '홀이 너무 예뻐요','aaa',1);
+VALUES (REPLY_SEQ.NEXTVAL, '홀이 너무 예뻐요','yerin',1);
 SELECT * FROM WEDDINGREPLY;
 INSERT INTO WEDDINGREPLY (WRENO, WMEMO, MID, WNO)
-VALUES (REPLY_SEQ.NEXTVAL, '홀이 커요','bbb',1);
+VALUES (REPLY_SEQ.NEXTVAL, '홀이 커요','bin',1);
 INSERT INTO WEDDINGREPLY (WRENO, WMEMO, MID, WNO)
-VALUES (REPLY_SEQ.NEXTVAL, '상담사가 별로에요','bbb',2);
+VALUES (REPLY_SEQ.NEXTVAL, '상담사가 별로에요','aaa',2);
 -- 2. 댓글 목록 출력하기 -- 페이징 처리(STARTROW, ENDROW)   // rownum 해주기
 SELECT * FROM WEDDINGREPLY; -- 8개 
 SELECT * FROM WEDDINGREPLY WHERE WNO='1' ORDER BY WRENO; -- 6개

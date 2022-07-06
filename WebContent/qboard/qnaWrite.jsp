@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<th>본문</th>
-				<td><textarea name="qcontent" rows="15" cols="35" class="qcontent"></textarea></td>
+				<td><textarea name="qcontent" rows="15" cols="36" class="qcontent"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2">

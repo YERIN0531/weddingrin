@@ -175,18 +175,19 @@ public class MemberDao {
 		int result = FAIL;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "MPW = ?," + 
+		String sql = "UPDATE MEMBER SET MPW = ?," + 
 				"                    MNAME = ?," + 
 				"                    MEMAIL = ?," + 
 				"                    MADDRESS = ?" + 
-				"        WHERE MID=?";
+				"        WHERE MId=?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getMpw());
 			pstmt.setString(2, member.getMname());
-			pstmt.setString(3, member.getMaddress());
-			pstmt.setString(4, member.getMid());
+			pstmt.setString(3, member.getMemail());
+			pstmt.setString(4, member.getMaddress());
+			pstmt.setString(5, member.getMid());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

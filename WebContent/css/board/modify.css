@@ -1,0 +1,23 @@
+@charset "UTF-8";
+#wrap{
+	width:1200px;
+	border: 1px solid black;	
+	margin:0 auto;
+}
+	#wrap table{
+		border:1px solid red;
+		width:1000px;
+		margin:0 auto;	
+	}
+	#wrap table tr{}
+	#wrap table tr th{
+	width:300px;
+	}
+	#wrap table tr td{
+	width:500px;
+	}
+	#wrap input[type="text"]{}
+	#wrap 
+	#wrap input[type="submit"]{}
+	#wrap input[type="button"]{}
+	#wrap input[type="reset"]{}

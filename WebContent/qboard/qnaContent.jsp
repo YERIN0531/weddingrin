@@ -34,18 +34,18 @@
 		</tr>
 		<tr>
 			<td><b>본문</b></td>
-			<td><b><pre>${qnacontent.qcontent }</pre></b></td>
+			<td><b>${qnacontent.qcontent }</b></td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<c:if test="${member.mid eq qnacontent.qid }">
-				 				<button onclick="location='${conPath}/QnaModifyView.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }'">수정</button>
+				 				<button class="btn" onclick="location='${conPath}/QnaModifyView.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }'">수정</button>
 				 			</c:if>
 				 			<c:if test="${member.mid eq qnacontent.qid or not empty admin}">
-				 				<button onclick="location='${conPath}/QnaDelete.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }'">삭제</button>
+				 				<button class="btn" onclick="location='${conPath}/QnaDelete.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }'">삭제</button>
 				 			</c:if>
 				 			<c:if test="${not empty admin and empty member.mid }">
-				 				<button onclick="location='${conPath}/QboardReplyView.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }&aid=${admin.aid }'">답변</button>
+				 				<button class="btn" onclick="location='${conPath}/QboardReplyView.do?qno=${qnacontent.qno }&pageNum=${param.pageNum }&aid=${admin.aid }'">답변</button>
 				 			</c:if>
 				 			<input type="button" value="목록" class="btn"
 				 	onclick="location='${conPath}/QnaList.do?pageNum=${param.pageNum }'">	

@@ -18,6 +18,7 @@ import com.lec.weddingrin.service.MListContentService;
 import com.lec.weddingrin.service.MListService;
 import com.lec.weddingrin.service.MLoginService;
 import com.lec.weddingrin.service.MLogoutService;
+import com.lec.weddingrin.service.MemberModifyService;
 import com.lec.weddingrin.service.MidConfirmService;
 import com.lec.weddingrin.service.MyboardService;
 import com.lec.weddingrin.service.QboardContentService;
@@ -75,7 +76,6 @@ public class Controller extends HttpServlet {
 			//service.......
 			viewPage = "main/main.jsp";
 			
-			
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * member 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */
@@ -112,7 +112,13 @@ public class Controller extends HttpServlet {
 			service = new MListContentService(); //얘는 고객이 로그인 한게 아니기 때문에 session이 안넘어옴
 			service.execute(request, response);
 			viewPage = "member/membercontent.jsp";
-			
+		}else if(com.equals("/memberModifyView.do")) {
+			viewPage = "member/membermodify.jsp";
+		}else if(com.equals("/memberModify.do")) {
+			service = new MemberModifyService();
+			service.execute(request, response);
+			viewPage = "Myboard.do";
+		
 			/* * * * * * * * * * *  * * * * * * * * * * * *
 			 * * * * * * * * * admin 관련 요청  * * * * * * *
 			* * * * * * * * * * *  * * * * * * * * * * * * */

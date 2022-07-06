@@ -139,11 +139,11 @@
 	<!-- 댓글 list 뿌릴 공간  -->	
 	
 		<table id="onelist">
-		<tr><th>한줄평</th><th>작성자</th><th>글쓴날짜</th><th>삭제</th></tr>
 		<c:if test="${totCnt==0 }">
-		<tr><td colspan="4">등록된 후기가 없습니다 첫 후기를 남겨주세요!</td></tr>
+		<tr><td colspan="4"><div class="xreview">등록된 후기가 없습니다 첫 후기를 남겨주세요!</div></td></tr>
 		</c:if>
 		<c:if test="${totCnt!=0 }">
+		<tr><th>한줄평</th><th>작성자</th><th>글쓴날짜</th><th>삭제</th></tr>
 		<c:forEach items="${replylist }" var="reply">
 		<tr>
 		<td class="memo">${reply.wmemo }<p></td>

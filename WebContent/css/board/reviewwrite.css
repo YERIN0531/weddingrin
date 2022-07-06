@@ -80,7 +80,7 @@
             #writeqboard .title{
             border: 1px solid lightgray;
             height:30px;
-            width:260px;
+            width:270px;
             border-radius: 10px;
             }
             #writeqboard .qcontent{
@@ -97,12 +97,6 @@
             color:white;
             border: none;
             }
-           
-           
-           
-           
-           
-           
             #border #writeboard .btn{
             width:100px;
             height:30px;
@@ -111,4 +105,44 @@
             color:white;
             border: none;
             }
+            #border #replyboard .btn{
+            width:100px;
+            height:30px;
+            margin-left:25px;
+            background-color: #757169;
+            color:white;
+            border: none;
+            }
+            
+            
+            
+            #replyboard{
+            width:600px;
+            margin: 0 auto;
+			padding-left:55px;
+            }
+            
+            #replyboard tr{
+            height:20px;
+            }
+            #replyboard th{
+            padding:0px;
+            color:gray;
+            }
+            #replyboard td{
+            padding-bottom: 10px;
+            }
+            #replyboard .replytitle{
+            border: 1px solid lightgray;
+            height:30px;
+            width:270px;
+            border-radius: 10px;
+            }
+            #replyboard .replycontent{
+            border:1px solid lightgray;
+            border-radius: 10px;
+            }
+            
+            
+            
             
