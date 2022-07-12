@@ -35,7 +35,7 @@
 			</tr>
 			<tr>
 			<th>본문</th>
-			<th class="three"><pre>${reviewboard.rcontent }</pre></th>
+			<th class="three">${reviewboard.rcontent }</th>
 			</tr>
 			<tr>
 			<th colspan="2">후기사진</th>

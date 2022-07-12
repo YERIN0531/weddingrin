@@ -46,7 +46,7 @@ public class ReviewDao {
 		String sql = "SELECT * FROM" + 
 				"    (SELECT ROWNUM RN, A.* FROM" + 
 				"    (SELECT R.*, MNAME FROM REVIEWBOARD R, MEMBER M WHERE R.MID=M.MID" + 
-				"                ORDER BY RDATE DESC) A)" + 
+				"                ORDER BY RNO DESC) A)" + 
 				"    WHERE RN BETWEEN ? AND ?";
 		try {
 			conn = getConnection();

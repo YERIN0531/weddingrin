@@ -166,6 +166,12 @@ public class Controller extends HttpServlet {
 			service.execute(request, response);
 			viewPage ="wedding/wLocalList.jsp";
 		
+			
+			
+			
+			
+			
+	
 			//댓글쓰기(weddingReply.do) 댓글 뿌리기(weddingReplyView.do) 댓글 삭제 
 		}else if(com.equals("/weddingReply.do")) {
 				service = new WeddingReplyService();
